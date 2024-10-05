@@ -1,21 +1,53 @@
+@mixin flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .actor-sheet {
-  .brigandyne-abilities {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .sheet-header .brigandyne-header-section {
+    @include flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .brigandyne-abilities,
+  .brigandyne-specialities,
+  .brigandyne-talents {
+    @include flex;
+    flex-direction: row;
+    width: 100%;
     margin: 0.5em 0;
     padding: 0.5em;
     border: 1px solid #000;
     border-radius: 5px;
     background-color: #f0f0f0;
-    width: 100%;
-    .brigandyne-ability {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
+  }
+
+  .brigandyne-specialities {
+    flex-wrap: wrap;
+  }
+
+  .brigandyne-specialitiy {
+    @include flex;
+    flex-direction: row;
+    .brigandyne-specialitiy-name {
+      flex-grow: 2;
+    }
+    .brigandyne-specialitiy-modifier {
+      max-width: 4em;
+    }
+  }
+
+  .brigandyne-ability,
+  .brigandyne-talent {
+    @include flex;
+    flex-direction: column;
+    gap: 0.1em;
+
+    input {
+      text-align: center;
     }
   }
 }

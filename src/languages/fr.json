@@ -2,6 +2,11 @@
   "BRIGANDYNE": {
     "Actor": {
       "destiny": "Destin",
+      "carrier": "Carrière",
+      "virtue": "Vertu",
+      "vice": "Vice",
+      "archetype": "Archétype",
+      "armor": "Armure",
       "name": "Nom"
     }
   }

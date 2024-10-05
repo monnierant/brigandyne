@@ -1,5 +1,5 @@
 // The import = is important so that `CaracModBaseCarr` works.
-import { abilities } from "../../constants";
+import { abilities, defaultLenght } from "../../constants";
 import fields = foundry.data.fields;
 
 const caracModeBaseCarrSchema = {
@@ -11,8 +11,24 @@ const caracModeBaseCarrSchema = {
 
 export type CaracModBaseCarrSchema = typeof caracModeBaseCarrSchema;
 
+const specialitySchema = {
+  name: new fields.StringField({ initial: "" }),
+  modifier: new fields.NumberField({ initial: 0 }),
+};
+
+const talentSchema = {
+  name: new fields.StringField({ initial: "" }),
+  description: new fields.StringField({ initial: "" }),
+};
+
 export const brigandyneActorSchema = {
+  carrier: new fields.StringField({ initial: "" }),
+  virtue: new fields.StringField({ initial: "" }),
+  vice: new fields.StringField({ initial: "" }),
+  archetype: new fields.StringField({ initial: "" }),
   destiny: new fields.NumberField({ initial: 0 }),
+  cover: new fields.NumberField({ initial: 0 }),
+  protection: new fields.NumberField({ initial: 0 }),
   abilities: new fields.ArrayField(
     new fields.SchemaField(caracModeBaseCarrSchema),
     {
@@ -24,6 +40,21 @@ export const brigandyneActorSchema = {
       })),
     }
   ),
+  specialities: new fields.ArrayField(
+    new fields.SchemaField(specialitySchema),
+    {
+      initial: Array(defaultLenght.speciality).fill({
+        name: "",
+        modifier: 0,
+      }),
+    }
+  ),
+  talents: new fields.ArrayField(new fields.SchemaField(talentSchema), {
+    initial: Array(defaultLenght.talent).fill({
+      name: "",
+      description: "",
+    }),
+  }),
 };
 
 export type BrigandyneActorSchema = typeof brigandyneActorSchema;

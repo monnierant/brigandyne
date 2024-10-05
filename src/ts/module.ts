@@ -8,8 +8,10 @@ import BrigandyneActorSheet from "./apps/sheets/BrigandyneActorSheet";
 import BrigandyneActor from "./apps/documents/BrigandyneActor";
 import { moduleId } from "./constants";
 import { range } from "./handlebarsHelpers/range";
+import { calculateAbility } from "./handlebarsHelpers/CalculateValues";
 // import brigandyneRoll from "./apps/rolls/cowboybebopRoll";
 // import brigandyneResultRollMessageData from "./apps/messages/cowboybebopResultRollMessageData";
+import { brigandyneActorSchema } from "./apps/schemas/ActorSchema";
 
 declare global {
   interface DocumentClassConfig {
@@ -39,7 +41,10 @@ declare global {
 Hooks.once("init", () => {
   console.log(`Initializing ${moduleId}`);
 
+  console.log("brigandyneActorSchema", brigandyneActorSchema);
+
   Handlebars.registerHelper("range", range);
+  Handlebars.registerHelper("calculateAbility", calculateAbility);
 
   Handlebars.registerHelper("divide", function (a: number, b: number) {
     return a / b;
