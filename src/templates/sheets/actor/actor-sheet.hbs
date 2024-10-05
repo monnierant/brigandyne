@@ -1,0 +1,51 @@
+<form class="actor-sheet {{ cssClass }}" autocomplete="off">
+  <header
+    class="sheet-header 
+  {{#if actor.system.isCurrentTarget}}
+  cowboy-prime-selected
+  {{/if}}"
+  >
+    {{log actor}}
+
+    <img
+      src="{{ actor.img }}"
+      data-edit="img"
+      title="{{ actor.name }}"
+      height="64"
+      width="64"
+    />
+    <div>
+      <label>{{localize 'BRIGANDYNE.Actor.name'}}</label>
+      <input name="name" type="text" value="{{ actor.name }}" />
+      <label>{{localize 'BRIGANDYNE.Actor.destiny'}}</label>
+      <input
+        name="system.destiny"
+        type="number"
+        value="{{ actor.system.destiny }}"
+      />
+    </div>
+  </header>
+  <section class="brigandyne-abilities">
+    {{#each actor.system.abilities as |ability|}}
+    {{log ability}}
+    <div class="brigandyne-ability">
+      <label>{{ ability.name }}</label>
+      <input
+        name="system.abilities.{{ @index }}.base"
+        type="number"
+        value="{{ ability.base }}"
+      />
+      <input
+        name="system.abilities.{{ @index }}.modificator"
+        type="number"
+        value="{{ ability.modificator }}"
+      />
+      <input
+        name="system.abilities.{{ @index }}.carrier"
+        type="number"
+        value="{{ ability.carrier }}"
+      />
+    </div>
+    {{/each}}
+  </section>
+</form>

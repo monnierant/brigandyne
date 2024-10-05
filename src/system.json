@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json.schemastore.org/foundryvtt-manifest.json",
+  "id": "brigandyne",
+  "title": "Brigandyne System",
+  "description": "",
+  "version": "1.0.0",
+  "packs": [],
+  "system": [],
+  "dependencies": [],
+  "scripts": [],
+  "compatibility": {
+    "minimum": "9",
+    "verified": "10",
+    "maximum": "12"
+  },
+  "documentTypes": {
+    "Actor": {
+      "character": {}
+    }
+  },
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "languages/fr.json"
+    }
+  ],
+  "styles": ["scripts/assets/module.css"],
+  "esmodules": ["scripts/module.js"]
+}

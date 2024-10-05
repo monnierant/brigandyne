@@ -1,0 +1,21 @@
+@import "./Document/actor.scss";
+// @import "./prime.scss";
+// @import "./clean.scss";
+// @import "./roll.scss";
+
+.window-app .window-content section.module-dog-picture-container {
+  flex: 100;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10px;
+
+  .module-dog-placeholder {
+    font-size: 200px;
+  }
+
+  img.module-dog-image {
+    object-fit: contain;
+    border: none;
+  }
+}

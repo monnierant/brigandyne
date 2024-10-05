@@ -1,0 +1,273 @@
+.cowboy-health-counter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cowboy-cylinder {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cowboy-slot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cowboy-slot input {
+  width: 20px;
+  height: 20px;
+}
+
+.cowboy-slot:nth-child(6) {
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cowboy-slot:nth-child(1) {
+  top: 31%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.cowboy-slot:nth-child(3) {
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cowboy-slot:nth-child(4) {
+  top: 69%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.cowboy-slot:nth-child(5) {
+  top: 31%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.cowboy-slot:nth-child(2) {
+  top: 69%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.cowboy-admin-pannel {
+  display: flex;
+}
+
+.cowboy-actor-trait-name {
+  width: 100%;
+}
+
+.cowboy-actor-roll {
+  width: auto;
+  min-width: 7em;
+}
+
+.cowboy-carton {
+  color: #18520b;
+  background-color: rgba(124, 169, 113, 0.6039215686);
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.cowboy-note {
+  color: #aa0200;
+  background-color: rgba(217, 136, 135, 0.7333333333);
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.cowboy-rythme {
+  color: #00aa85;
+  background-color: rgba(146, 232, 213, 0.7333333333);
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.dice-tooltip .part-total.success {
+  color: #18520b;
+  background-color: rgba(124, 169, 113, 0.6039215686);
+}
+
+.cowboy-health {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0.5em;
+}
+
+.cowboy-actor-trait-cat-header {
+  display: flex;
+  margin: 0;
+}
+
+.cowboy-actor-counters {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0.5em;
+}
+.cowboy-actor-counters .cowboy-actor-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.cowboy-actor-counters .cowboy-actor-counter .cowboy-actor-counter-value {
+  margin-left: 0.5em;
+}
+
+.cowboy-actor-trait-cat {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
+}
+.cowboy-actor-trait-cat .cowboy-actor-trait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.cowboy-actor-trait-cat .cowboy-actor-trait-ishyperdamaged {
+  color: #aa0200;
+  background-color: rgba(217, 136, 135, 0.7333333333);
+}
+.cowboy-actor-trait-cat .cowboy-actor-trait-isdamaged {
+  color: #7e5a00;
+  background-color: rgba(251, 207, 97, 0.7333333333);
+}
+.cowboy-actor-trait-cat .cowboy-actor-trait-heal {
+  width: auto;
+}
+
+.cowboy-cadran-counter {
+  border-radius: 3px;
+  background-color: rgba(175, 173, 170, 0.3960784314);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.2em;
+}
+.cowboy-cadran-counter.cowboy-cadran-important {
+  background-color: rgba(255, 204, 204, 0.5647058824);
+}
+.cowboy-cadran-counter .cowboy-test-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-image: url("../images/dices/img.png");
+}
+.cowboy-cadran-counter .cowboy-cadran {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.cowboy-cadran-counter .cowboy-cadran .cowboy-cadran-slot {
+  position: absolute;
+  width: calc(50% - 1px); /* Adjusting width to leave space for divider */
+  height: 100%;
+  transform-origin: right center;
+  background-color: rgba(0, 0, 0, 0);
+}
+.cowboy-cadran-counter .cowboy-cadran .cowboy-cadran-slot::before {
+  content: "";
+  position: absolute;
+  width: 1px; /* Divider width */
+  height: 100%;
+  top: 0;
+  right: 0px; /* Positioning the divider */
+  border-right: 1px dashed rgb(55, 55, 55); /* Dotted divider */
+}
+
+.cowboy-prime-cadrans-grid {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cowboy-prime-cadrans-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1em;
+}
+
+button.unbutton {
+  background: none;
+  margin: 0;
+  border-radius: 0;
+  line-height: normal;
+}
+button.unbutton > i {
+  margin: 0;
+}
+
+.dice-roll .cowboy-dice-tooltip {
+  display: block !important;
+}
+.dice-roll .dice-total.cowboy-dice-super-success {
+  background-color: rgba(51, 193, 75, 0.2);
+}
+.dice-roll .cowboy-roll-traits {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0.2em 0;
+}
+.dice-roll .cowboy-roll-traits .cowboy-roll-trait {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  padding: 5px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0.2em 0;
+}
+.dice-roll .cowboy-roll-traits .cowboy-roll-trait .cowboy-roll-trait-name {
+  width: auto;
+  margin-right: 0.5em;
+}
+.dice-roll .cowboy-roll-traits .cowboy-roll-trait .cowboy-roll-action {
+  width: auto;
+}
+
+.window-app .window-content section.module-dog-picture-container {
+  flex: 100;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10px;
+}
+.window-app .window-content section.module-dog-picture-container .module-dog-placeholder {
+  font-size: 200px;
+}
+.window-app .window-content section.module-dog-picture-container img.module-dog-image {
+  object-fit: contain;
+  border: none;
+}
