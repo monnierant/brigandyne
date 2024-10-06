@@ -6,10 +6,18 @@
 }
 
 .actor-sheet {
+  img {
+    height: 130px !important;
+    width: auto !important;
+  }
   .sheet-header .brigandyne-header-section {
     @include flex;
     flex-direction: row;
     width: 100%;
+  }
+
+  .brigandyne-header-section-gap {
+    gap: 0.5rem;
   }
 
   .brigandyne-abilities,
@@ -35,8 +43,8 @@
     .brigandyne-specialitiy-name {
       flex-grow: 2;
     }
-    .brigandyne-specialitiy-modifier {
-      max-width: 4em;
+    .brigandyne-specialitiy-modificator {
+      max-width: 2.5rem;
     }
   }
 

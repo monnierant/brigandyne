@@ -48,20 +48,86 @@
           />
         </div>
       </div>
-      <div class="brigandyne-header-section">
+      <div class="brigandyne-header-section brigandyne-header-section-gap">
         <div>
           <label>{{localize 'BRIGANDYNE.Actor.armor'}}</label>
           <div class="brigandyne-header-section">
+            <input
+              name="system.cover"
+              type="number"
+              value="{{ actor.system.cover }}"
+            />
+            /
             <input
               name="system.protection"
               type="number"
               value="{{ actor.system.protection }}"
             />
+          </div>
+        </div>
+        <div>
+          <label>{{localize 'BRIGANDYNE.Actor.health'}}</label>
+          <div class="brigandyne-header-section">
+            <input
+              name="system.health.current"
+              type="number"
+              value="{{ actor.system.health.current }}"
+            />
+            <input
+              name="system.health.modificator"
+              type="number"
+              value="{{ actor.system.health.modificator }}"
+            />
+            <input
+              name="system.health.base"
+              type="number"
+              value="{{ actor.system.health.base }}"
+            />
+            <input
+              name="system.health.line"
+              type="number"
+              value="{{ actor.system.health.line }}"
+            />
+          </div>
+        </div>
+        <div>
+          <label>{{localize 'BRIGANDYNE.Actor.composure'}}</label>
+          <div class="brigandyne-header-section">
+            <input
+              name="system.composure.current"
+              type="number"
+              value="{{ actor.system.composure.current }}"
+            />
+            <input
+              name="system.composure.modificator"
+              type="number"
+              value="{{ actor.system.composure.modificator }}"
+            />
+            <input
+              name="system.composure.base"
+              type="number"
+              value="{{ actor.system.composure.base }}"
+            />
+            <input
+              name="system.composure.line"
+              type="number"
+              value="{{ actor.system.composure.line }}"
+            />
+          </div>
+        </div>
+        <div>
+          <label>{{localize 'BRIGANDYNE.Actor.initiative'}}</label>
+          <div class="brigandyne-header-section">
+            <input
+              name="system.initiative.modificator"
+              type="number"
+              value="{{ actor.system.initiative.modificator }}"
+            />
             /
             <input
-              name="system.abilities"
+              name="system.initiative.base"
               type="number"
-              value="{{ actor.system.abilities }}"
+              value="{{ actor.system.initiative.base }}"
             />
           </div>
         </div>
@@ -118,10 +184,10 @@
         value="{{ speciality.name }}"
       />
       <input
-        class="brigandyne-specialitiy-modifier"
-        name="system.specialities.{{ @index }}.modifier"
+        class="brigandyne-specialitiy-modificator"
+        name="system.specialities.{{ @index }}.modificator"
         type="number"
-        value="{{ speciality.modifier }}"
+        value="{{ speciality.modificator }}"
       />
     </div>
     {{/each}}

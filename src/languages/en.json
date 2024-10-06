@@ -1,6 +1,7 @@
 {
   "BRIGANDYNE": {
     "Actor": {
+      "name": "Name",
       "destiny": "Destiny",
       "carrier": "Carrier",
       "virtue": "Virtue",
@@ -10,7 +11,25 @@
       "talents": "Talents",
       "specialities": "Specialities",
       "abilities": "Abilities",
-      "name": "Name"
+      "initiative": "Initiative",
+      "health": "Health",
+      "composure": "Composure",
+      "money": "Money",
+      "tooltips": {
+        "base": "Base",
+        "modificator": "Modificator",
+        "total": "Total",
+        "line": "Line",
+        "destiny": "Destiny is a measure of the character's fate and fortune.",
+        "carrier": "Carrier is the character's profession or occupation.",
+        "virtue": "Virtue is the character's moral compass.",
+        "vice": "Vice is the character's moral failing.",
+        "archetype": "Archetype is the character's role in the world.",
+        "armor": "Armor is the character's protective gear.",
+        "talents": "Talents are the character's unique abilities.",
+        "specialities": "Specialities are the character's areas of expertise.",
+        "abilities": "Abilities are the character's learned skills."
+      }
     }
   }
 }

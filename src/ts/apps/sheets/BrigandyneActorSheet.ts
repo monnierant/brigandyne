@@ -2,7 +2,7 @@ import { moduleId } from "../../constants";
 
 export default class BrigandyneItemSheet extends ActorSheet {
   constructor(object: any, options = {}) {
-    super(object, { ...options, width: 700 });
+    super(object, { ...options, width: 600 });
   }
 
   // Define the template to use for this sheet

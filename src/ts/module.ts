@@ -11,7 +11,7 @@ import { range } from "./handlebarsHelpers/range";
 import { calculateAbility } from "./handlebarsHelpers/CalculateValues";
 // import brigandyneRoll from "./apps/rolls/cowboybebopRoll";
 // import brigandyneResultRollMessageData from "./apps/messages/cowboybebopResultRollMessageData";
-import { brigandyneActorSchema } from "./apps/schemas/ActorSchema";
+import { brigandyneActorSchema } from "./apps/schemas/BrigandyneActorSchema";
 
 declare global {
   interface DocumentClassConfig {

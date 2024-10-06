@@ -1,13 +1,32 @@
 {
   "BRIGANDYNE": {
     "Actor": {
+      "name": "Nom",
       "destiny": "Destin",
       "carrier": "Carrière",
       "virtue": "Vertu",
       "vice": "Vice",
       "archetype": "Archétype",
       "armor": "Armure",
-      "name": "Nom"
+      "initiative": "Initiative",
+      "health": "Santé",
+      "composure": "Sang-froid",
+      "money": "Argent",
+      "tooltips": {
+        "base": "Base",
+        "modificator": "Modificateur",
+        "total": "Total",
+        "line": "Seuil",
+        "destiny": "Le destin est une mesure du sort et de la fortune du personnage.",
+        "carrier": "Le porteur est la profession ou l'occupation du personnage.",
+        "virtue": "La vertu est la boussole morale du personnage.",
+        "vice": "Le vice est la faille morale du personnage.",
+        "archetype": "L'archétype est le rôle du personnage dans le monde.",
+        "armor": "L'armure est l'équipement de protection du personnage.",
+        "talents": "Les talents sont les capacités uniques du personnage.",
+        "specialities": "Les spécialités sont les domaines d'expertise du personnage.",
+        "abilities": "Les capacités sont les compétences acquises du personnage."
+      }
     }
   }
 }

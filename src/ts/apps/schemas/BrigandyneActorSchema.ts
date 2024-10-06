@@ -2,24 +2,40 @@
 import { abilities, defaultLenght } from "../../constants";
 import fields = foundry.data.fields;
 
-const caracModeBaseCarrSchema = {
+const caracModeBaseCarrSchema = () => ({
   name: new fields.StringField({ required: true }),
   base: new fields.NumberField({ initial: 0 }),
   modificator: new fields.NumberField({ initial: 0 }),
   carrier: new fields.NumberField({ initial: 0 }),
-};
+});
 
-export type CaracModBaseCarrSchema = typeof caracModeBaseCarrSchema;
+const simpleModeBaseSchema = () => ({
+  base: new fields.NumberField({ initial: 0 }),
+  modificator: new fields.NumberField({ initial: 0 }),
+});
 
-const specialitySchema = {
+const specialitySchema = () => ({
   name: new fields.StringField({ initial: "" }),
-  modifier: new fields.NumberField({ initial: 0 }),
-};
+  modificator: new fields.NumberField({ initial: 0 }),
+});
 
-const talentSchema = {
+const talentSchema = () => ({
   name: new fields.StringField({ initial: "" }),
   description: new fields.StringField({ initial: "" }),
-};
+});
+
+const moneySchema = () => ({
+  gold: new fields.NumberField({ initial: 0 }),
+  silver: new fields.NumberField({ initial: 0 }),
+  copper: new fields.NumberField({ initial: 0 }),
+});
+
+const vitalStatSchema = () => ({
+  current: new fields.NumberField({ initial: 0 }),
+  base: new fields.NumberField({ initial: 0 }),
+  modificator: new fields.NumberField({ initial: 0 }),
+  line: new fields.NumberField({ initial: 0 }),
+});
 
 export const brigandyneActorSchema = {
   carrier: new fields.StringField({ initial: "" }),
@@ -29,8 +45,12 @@ export const brigandyneActorSchema = {
   destiny: new fields.NumberField({ initial: 0 }),
   cover: new fields.NumberField({ initial: 0 }),
   protection: new fields.NumberField({ initial: 0 }),
+  initiative: new fields.SchemaField(simpleModeBaseSchema()),
+  money: new fields.SchemaField(moneySchema()),
+  health: new fields.SchemaField(vitalStatSchema()),
+  composure: new fields.SchemaField(vitalStatSchema()),
   abilities: new fields.ArrayField(
-    new fields.SchemaField(caracModeBaseCarrSchema),
+    new fields.SchemaField(caracModeBaseCarrSchema()),
     {
       initial: abilities.map((name: string) => ({
         name: name,
@@ -41,7 +61,7 @@ export const brigandyneActorSchema = {
     }
   ),
   specialities: new fields.ArrayField(
-    new fields.SchemaField(specialitySchema),
+    new fields.SchemaField(specialitySchema()),
     {
       initial: Array(defaultLenght.speciality).fill({
         name: "",
@@ -49,7 +69,7 @@ export const brigandyneActorSchema = {
       }),
     }
   ),
-  talents: new fields.ArrayField(new fields.SchemaField(talentSchema), {
+  talents: new fields.ArrayField(new fields.SchemaField(talentSchema()), {
     initial: Array(defaultLenght.talent).fill({
       name: "",
       description: "",
