@@ -1,7 +1,8 @@
 <form class="actor-sheet {{ cssClass }}" autocomplete="off">
+  {{!-- ----------------------------------------- --}}
+  {{!-- Header --}}
+  {{!-- ----------------------------------------- --}}
   <header class="sheet-header">
-    {{log actor}}
-
     <img
       src="{{ actor.img }}"
       data-edit="img"
@@ -10,17 +11,26 @@
       width="177"
     />
     <div class="brigandyne-header-content">
-      <div>
-        <label>{{localize 'BRIGANDYNE.Actor.name'}}</label>
-        <input name="name" type="text" value="{{ actor.name }}" />
+      {{!-- Name --}}
+      <div class="brigandyne-header-section">
+        <div class="brigandyne-header-name">
+          <label>{{localize 'BRIGANDYNE.Actor.name'}}</label>
+          <input name="name" type="text" value="{{ actor.name }}" />
+        </div>
+        <div>
+          <label>{{localize 'BRIGANDYNE.Actor.job'}}</label>
+          <input name="system.job" type="Text" value="{{ actor.system.job }}" />
+        </div>
       </div>
+
+      {{!-- Description --}}
       <div class="brigandyne-header-section">
         <div>
-          <label>{{localize 'BRIGANDYNE.Actor.carrier'}}</label>
+          <label>{{localize 'BRIGANDYNE.Actor.archetype'}}</label>
           <input
-            name="system.carrier"
+            name="system.archetype"
             type="number"
-            value="{{ actor.system.carrier }}"
+            value="{{ actor.system.archetype }}"
           />
         </div>
         <div>
@@ -40,15 +50,19 @@
           />
         </div>
         <div>
-          <label>{{localize 'BRIGANDYNE.Actor.archetype'}}</label>
+          <label>{{localize 'BRIGANDYNE.Actor.carrier'}}</label>
           <input
-            name="system.archetype"
+            name="system.carrier"
             type="number"
-            value="{{ actor.system.archetype }}"
+            value="{{ actor.system.carrier }}"
           />
         </div>
       </div>
-      <div class="brigandyne-header-section brigandyne-header-section-gap">
+
+      {{!-- Stats --}}
+      <div
+        class="brigandyne-header-section-stats brigandyne-header-section brigandyne-header-section-gap"
+      >
         <div>
           <label>{{localize 'BRIGANDYNE.Actor.armor'}}</label>
           <div class="brigandyne-header-section">
@@ -140,8 +154,52 @@
           />
         </div>
       </div>
+
+      {{!-- Status --}}
+      <div class="brigandyne-header-section brigandyne-header-section-wound">
+        <div class="brigandyne-header-wound">
+          <label>{{localize 'BRIGANDYNE.Actor.wound'}}</label>
+          <input
+            name="system.wound"
+            type="text"
+            value="{{ actor.system.wound }}"
+          />
+        </div>
+        <div class="brigandyne-header-state">
+          <label>{{localize 'BRIGANDYNE.Actor.state'}}</label>
+          <input
+            name="system.state"
+            type="text"
+            value="{{ actor.system.state }}"
+          />
+        </div>
+        <div>
+          <label>{{localize 'BRIGANDYNE.Actor.money'}}</label>
+          <div class="brigandyne-header-money">
+            <input
+              name="system.money.gold"
+              type="number"
+              value="{{ actor.system.money.gold }}"
+            />
+            <input
+              name="system.money.silver"
+              type="number"
+              value="{{ actor.system.money.silver }}"
+            />
+            <input
+              name="system.money.copper"
+              type="number"
+              value="{{ actor.system.money.copper }}"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </header>
+
+  {{!-- ----------------------------------------- --}}
+  {{!-- Abilities --}}
+  {{!-- ----------------------------------------- --}}
   <h2>{{localize 'BRIGANDYNE.Actor.abilities'}}</h2>
   <section class="brigandyne-abilities">
     {{#each actor.system.abilities as |ability|}}
@@ -173,6 +231,10 @@
     </div>
     {{/each}}
   </section>
+
+  {{!-- ----------------------------------------- --}}
+  {{!-- Specialities --}}
+  {{!-- ----------------------------------------- --}}
   <h2>{{localize 'BRIGANDYNE.Actor.specialities'}}</h2>
   <section class="brigandyne-specialities">
     {{#each actor.system.specialities as |speciality|}}

@@ -7,13 +7,44 @@
 
 .actor-sheet {
   img {
-    height: 130px !important;
+    height: 175px !important;
     width: auto !important;
   }
+
   .sheet-header .brigandyne-header-section {
     @include flex;
     flex-direction: row;
     width: 100%;
+  }
+
+  .brigandyne-header-name {
+    width: 100%;
+  }
+
+  .brigandyne-header-section-wound {
+    gap: 0.5rem;
+  }
+
+  .brigandyne-header-money {
+    @include flex;
+    flex-direction: row;
+    input {
+      width: 3rem;
+    }
+  }
+
+  .brigandyne-header-section-stats {
+    margin-top: 0.4rem;
+  }
+
+  .brigandyne-header-state {
+    width: 100%;
+  }
+
+  .brigandyne-header-wound {
+    input {
+      width: 5rem;
+    }
   }
 
   .brigandyne-header-section-gap {

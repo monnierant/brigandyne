@@ -11,6 +11,9 @@
       "initiative": "Initiative",
       "health": "Santé",
       "composure": "Sang-froid",
+      "wound": "Blessures",
+      "state": "État",
+      "job": "Métier",
       "money": "Argent",
       "tooltips": {
         "base": "Base",

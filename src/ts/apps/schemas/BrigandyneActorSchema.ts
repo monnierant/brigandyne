@@ -46,9 +46,11 @@ export const brigandyneActorSchema = {
   cover: new fields.NumberField({ initial: 0 }),
   protection: new fields.NumberField({ initial: 0 }),
   initiative: new fields.SchemaField(simpleModeBaseSchema()),
-  money: new fields.SchemaField(moneySchema()),
   health: new fields.SchemaField(vitalStatSchema()),
   composure: new fields.SchemaField(vitalStatSchema()),
+  wound: new fields.NumberField({ initial: 0 }),
+  state: new fields.StringField({ initial: "" }),
+  job: new fields.StringField({ initial: "" }),
   abilities: new fields.ArrayField(
     new fields.SchemaField(caracModeBaseCarrSchema()),
     {
@@ -75,6 +77,7 @@ export const brigandyneActorSchema = {
       description: "",
     }),
   }),
+  money: new fields.SchemaField(moneySchema()),
 };
 
 export type BrigandyneActorSchema = typeof brigandyneActorSchema;

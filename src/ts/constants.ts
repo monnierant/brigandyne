@@ -3,7 +3,7 @@ import { id } from "../system.json";
 
 export const defaultLenght = {
   speciality: 6,
-  talent: 6,
+  talent: 5,
 };
 
 export const moduleId: string = id;
