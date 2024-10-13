@@ -1,7 +1,8 @@
 {
   "BRIGANDYNE": {
     "Global": {
-      "modificator": "Difficulté",
+      "modificator": "Modificateur",
+      "difficulty": "Difficulté",
       "advantage": "Avantage"
     },
     "Dialog": {
@@ -23,6 +24,12 @@
       "vice": "Vice",
       "archetype": "Archétype",
       "armor": "Armure",
+      "talents": "Talents",
+      "talent": "Talent",
+      "specialities": "Spécialités",
+      "abilities": "Compétences",
+      "speciality": "Spécialité",
+      "ability": "Ability",
       "initiative": "Initiative",
       "health": "Santé",
       "composure": "Sang-froid",
@@ -30,6 +37,26 @@
       "state": "État",
       "job": "Métier",
       "money": "Argent",
+      "kit": "Nécessaire",
+      "bag": "Type de sac",
+      "inventory": "Inventaire",
+      "notes": "Notes",
+      "property": "Propriété",
+      "properties": "Propriétés",
+      "equipment": "Équipement",
+      "weapon": "Arme",
+      "armorTypes": {
+        "head": "Couvre-chef",
+        "shield": "Bouclier",
+        "body": "Armure"
+      },
+      "tabs": {
+        "abilities": "Stats",
+        "inventory": "Inventaire",
+        "spells": "Sorts",
+        "histo": "Histoire",
+        "notes": "Notes"
+      },
       "tooltips": {
         "base": "Base",
         "modificator": "Modificateur",

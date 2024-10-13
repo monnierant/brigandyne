@@ -1,5 +1,5 @@
 // The import = is important so that `CaracModBaseCarr` works.
-import { abilities, defaultLenght } from "../../constants";
+import { abilities, armorTypes, defaultLenght } from "../../constants";
 import fields = foundry.data.fields;
 
 export interface CaracModBaseCarr {
@@ -14,6 +14,7 @@ const caracModeBaseCarrSchema = () => ({
   base: new fields.NumberField({ initial: 0 }),
   modificator: new fields.NumberField({ initial: 0 }),
   carrier: new fields.NumberField({ initial: 0 }),
+  carrierMax: new fields.NumberField({ initial: 0 }),
 });
 
 export interface SimpleModeBase {
@@ -72,6 +73,56 @@ const vitalStatSchema = () => ({
   line: new fields.NumberField({ initial: 0 }),
 });
 
+export interface Bag {
+  type: string;
+  content: string;
+}
+
+const bagSchema = () => ({
+  type: new fields.StringField({ initial: "" }),
+  content: new fields.StringField({ initial: "" }),
+});
+
+export interface Weapon {
+  name: string;
+  damage: number;
+  properties: string;
+}
+
+const weaponSchema = () => ({
+  name: new fields.StringField({ initial: "" }),
+  damage: new fields.NumberField({ initial: 0 }),
+  properties: new fields.StringField({ initial: "" }),
+});
+
+export interface Experience {
+  current: number;
+  total: number;
+  spent: number;
+}
+
+const experienceSchema = () => ({
+  current: new fields.NumberField({ initial: 0 }),
+  total: new fields.NumberField({ initial: 0 }),
+  spent: new fields.NumberField({ initial: 0 }),
+});
+
+export interface Armor {
+  name: string;
+  type: string;
+  protection: number;
+  coverage: number;
+  properties: string;
+}
+
+const armorSchema = () => ({
+  name: new fields.StringField({ initial: "" }),
+  type: new fields.StringField({ initial: "" }),
+  protection: new fields.NumberField({ initial: 0 }),
+  coverage: new fields.NumberField({ initial: 0 }),
+  properties: new fields.StringField({ initial: "" }),
+});
+
 export interface BrigandyneActorSystem {
   carrier: string;
   virtue: string;
@@ -83,13 +134,25 @@ export interface BrigandyneActorSystem {
   initiative: SimpleModeBase;
   health: VitalStat;
   composure: VitalStat;
-  wound: number;
   state: string;
   job: string;
   abilities: CaracModBaseCarr[];
   specialities: Speciality[];
   talents: Talent[];
   money: Money;
+  weapons: Weapon[];
+  armors: Armor[];
+  bags: Bag[];
+  notes: string;
+  notes2: string;
+  properties: string[];
+  language: string;
+  residual: number;
+  crisis: number;
+  experience: Experience;
+  experienceDetails: string;
+  smallDescription: string;
+  origin: string;
 }
 
 export const brigandyneActorSchema = {
@@ -103,7 +166,6 @@ export const brigandyneActorSchema = {
   initiative: new fields.SchemaField(simpleModeBaseSchema()),
   health: new fields.SchemaField(vitalStatSchema()),
   composure: new fields.SchemaField(vitalStatSchema()),
-  wound: new fields.NumberField({ initial: 0 }),
   state: new fields.StringField({ initial: "" }),
   job: new fields.StringField({ initial: "" }),
   abilities: new fields.ArrayField(
@@ -114,6 +176,7 @@ export const brigandyneActorSchema = {
         base: 0,
         modificator: 0,
         carrier: 0,
+        carrierMax: 0,
       })),
     }
   ),
@@ -133,6 +196,46 @@ export const brigandyneActorSchema = {
     }),
   }),
   money: new fields.SchemaField(moneySchema()),
+  weapons: new fields.ArrayField(new fields.SchemaField(weaponSchema()), {
+    initial: Array(defaultLenght.weapons).fill({
+      name: "",
+      damage: -3,
+      properties: "",
+    }),
+  }),
+  armors: new fields.ArrayField(new fields.SchemaField(armorSchema()), {
+    initial: armorTypes.map((type: string) => ({
+      name: "",
+      type: type,
+      protection: 0,
+      coverage: 0,
+      properties: "",
+    })),
+  }),
+  bags: new fields.ArrayField(new fields.SchemaField(bagSchema()), {
+    initial: Array(defaultLenght.bags).fill({
+      type: "",
+      content: "",
+    }),
+  }),
+  notes: new fields.StringField({ initial: "" }),
+  notes2: new fields.StringField({ initial: "" }),
+  properties: new fields.ArrayField(new fields.StringField(), {
+    initial: Array(defaultLenght.properties).fill(""),
+  }),
+  language: new fields.StringField({ initial: "" }),
+  residual: new fields.NumberField({ initial: 0 }),
+  crisis: new fields.NumberField({ initial: 0 }),
+  experience: new fields.SchemaField(experienceSchema(), {
+    initial: {
+      current: 0,
+      total: 0,
+      spent: 0,
+    },
+  }),
+  experienceDetails: new fields.StringField({ initial: "" }),
+  smallDescription: new fields.StringField({ initial: "" }),
+  origin: new fields.StringField({ initial: "" }),
 };
 
 export type BrigandyneActorSchema = typeof brigandyneActorSchema;

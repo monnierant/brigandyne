@@ -72,6 +72,10 @@ export default class BrigandyneActorRollDialog extends Dialog {
       parseInt(
         html.find("#brigandyne-dialog-modifier-modificator").val() as string
       ) ?? 0;
+    let difficulty =
+      parseInt(
+        html.find("#brigandyne-dialog-modifier-difficulty").val() as string
+      ) ?? 0;
     let advantage =
       parseInt(
         html.find("#brigandyne-dialog-modifier-advantage").val() as string
@@ -80,6 +84,7 @@ export default class BrigandyneActorRollDialog extends Dialog {
     await this.actor.rollAbility(
       this.abilityId,
       isNaN(advantage) ? 0 : advantage,
+      isNaN(difficulty) ? 0 : difficulty,
       isNaN(modificator) ? 0 : modificator
     );
   }

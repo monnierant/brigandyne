@@ -14,6 +14,7 @@ import { calculateAbility } from "./handlebarsHelpers/CalculateValues";
 import { brigandyneActorSchema } from "./apps/schemas/BrigandyneActorSchema";
 import BrigandyneActorDataModel from "./apps/datamodels/BrigandyneActorDataModel";
 import BrigandyneActor from "./apps/documents/BrigandyneActor";
+import { concat } from "./handlebarsHelpers/concat";
 
 declare global {
   interface DocumentClassConfig {
@@ -28,17 +29,17 @@ declare global {
   // }
 }
 
-// async function preloadTemplates(): Promise<any> {
-//   const templatePaths = [
-//     `systems/${moduleId}/templates/partials/rythm-counter.hbs`,
-//     `systems/${moduleId}/templates/partials/health-counter.hbs`,
-//     `systems/${moduleId}/templates/partials/actor-admin-panel.hbs`,
-//     `systems/${moduleId}/templates/partials/cadran-counter.hbs`,
-//     `systems/${moduleId}/templates/partials/token-counter.hbs`,
-//   ];
+async function preloadTemplates(): Promise<any> {
+  const templatePaths = [
+    `systems/${moduleId}/templates/partials/actor/header.hbs`,
+    `systems/${moduleId}/templates/partials/actor/pannels/abilities.hbs`,
+    `systems/${moduleId}/templates/partials/actor/pannels/inventory.hbs`,
+    `systems/${moduleId}/templates/partials/actor/pannels/spells.hbs`,
+    `systems/${moduleId}/templates/partials/actor/pannels/histo.hbs`,
+  ];
 
-//   return loadTemplates(templatePaths);
-// }
+  return loadTemplates(templatePaths);
+}
 
 Hooks.once("init", () => {
   console.log(`Initializing ${moduleId}`);
@@ -46,6 +47,7 @@ Hooks.once("init", () => {
   console.log("brigandyneActorSchema", brigandyneActorSchema);
 
   Handlebars.registerHelper("range", range);
+  Handlebars.registerHelper("concat", concat);
   Handlebars.registerHelper("calculateAbility", calculateAbility);
 
   Handlebars.registerHelper("divide", function (a: number, b: number) {
@@ -62,5 +64,5 @@ Hooks.once("init", () => {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet(moduleId, BrigandyneActorSheet, { makeDefault: true });
 
-  // preloadTemplates();
+  preloadTemplates();
 });

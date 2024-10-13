@@ -1,0 +1,96 @@
+{{!-- Name --}}
+<div
+  class="
+{{#if (not display)}}
+  hidden
+{{/if}}
+"
+>
+  <section>
+    <div>
+      <div class="brigandyne-header-name">
+        <label>{{localize 'BRIGANDYNE.Actor.name'}}</label>
+        <input name="name" type="text" value="{{ actor.name }}" />
+      </div>
+      <div>
+        <label>{{localize 'BRIGANDYNE.Actor.job'}}</label>
+        <input name="system.job" type="Text" value="{{ actor.system.job }}" />
+      </div>
+      <div>
+        <label>{{localize 'BRIGANDYNE.Actor.smallDescription'}}</label>
+        <input
+          name="system.smallDescription"
+          type="Text"
+          value="{{ actor.system.smallDescription }}"
+        />
+      </div>
+    </div>
+    <div>
+      <label>{{localize 'BRIGANDYNE.Actor.origin'}}</label>
+      <textarea name="system.origin" rows="5">{{
+        actor.system.origin
+      }}</textarea>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <label>{{localize 'BRIGANDYNE.Actor.language'}}</label>
+      <input
+        name="system.language"
+        type="Text"
+        value="{{ actor.system.language }}"
+      />
+    </div>
+    <div>
+      <label>{{localize 'BRIGANDYNE.Actor.residual'}}</label>
+      <input
+        name="system.residual"
+        type="number"
+        value="{{ actor.system.residual }}"
+      />
+    </div>
+    <div>
+      <label>{{localize 'BRIGANDYNE.Actor.crisis'}}</label>
+      <input
+        name="system.crisis"
+        type="number"
+        value="{{ actor.system.crisis }}"
+      />
+    </div>
+    <div>
+      <label>{{localize 'BRIGANDYNE.Actor.experience'}}</label>
+      <div>
+        <input
+          name="system.experience.current"
+          type="hidden"
+          value="{{ actor.system.experience.current }}"
+        />
+        <input
+          name="system.experience.total"
+          type="hidden"
+          value="{{ actor.system.experience.total }}"
+        />
+        <input
+          name="system.experience.spent"
+          type="hidden"
+          value="{{ actor.system.experience.spent }}"
+        />
+        <div>
+          {{ actor.system.experience.current }} /
+          {{ actor.system.experience.total }} /
+          {{ actor.system.experience.spent }}
+        </div>
+        <div>
+          <input name="xp" type="number" value="0" />
+          <a class="brigandyne-xp" data-mult="1">
+            <i class="fa-solid fa-square-plus"></i>
+          </a>
+          <a class="brigandyne-xp" data-mult="-1">
+            <i class="fa-solid fa-square-minus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

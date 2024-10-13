@@ -31,10 +31,12 @@ export default class BrigandyneActor extends Actor {
   public async rollAbility(
     abilityId: number,
     advantage: number,
+    difficulty: number,
     modificator: number
   ) {
     const ability = this.getAbility(abilityId);
-    const value = this.getAbilityValue(ability) + modificator + advantage;
+    const value =
+      this.getAbilityValue(ability) + modificator + advantage + difficulty;
     const roll = await new Roll(`1d100`).roll();
     const success = roll.total <= value;
     const content = await renderTemplate(
@@ -45,6 +47,7 @@ export default class BrigandyneActor extends Actor {
         base: this.getAbilityValue(ability),
         modificator: modificator,
         advantage: advantage,
+        difficulty: difficulty,
         result: roll,
         limit: value,
         success: success,
