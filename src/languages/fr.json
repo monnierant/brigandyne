@@ -44,6 +44,12 @@
       "property": "Propriété",
       "properties": "Propriétés",
       "equipment": "Équipement",
+      "smallDescription": "Description",
+      "origin": "Origine",
+      "language": "Langue",
+      "residual": "Séquelle",
+      "crisis": "Crise",
+      "experience": "Expérience",
       "weapon": "Arme",
       "armorTypes": {
         "head": "Couvre-chef",

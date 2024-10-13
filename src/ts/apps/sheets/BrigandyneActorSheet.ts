@@ -37,6 +37,8 @@ export default class BrigandyneItemSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
+    html.find(".brigandyne-xp").on("click", this._onUpdateXp.bind(this));
+
     if (typeof this.actor.system == typeof brigandyneActorSchema) {
       this.activateListenersPC(html);
     }
@@ -57,6 +59,21 @@ export default class BrigandyneItemSheet extends ActorSheet {
   private _onTabChange(event: JQuery.ClickEvent) {
     event.preventDefault();
     this.tab = event.currentTarget.dataset.tab;
+    this.render();
+  }
+
+  private async _onUpdateXp(event: JQuery.ClickEvent) {
+    event.preventDefault();
+    const parent = event.currentTarget.parentElement;
+    const input = parent.querySelector("input[name='xp']") as HTMLInputElement;
+    const mult = parseInt(event.currentTarget.dataset.mult) ?? 0;
+    const xp = parseInt(input.value) ?? 0;
+    console.log("parent", parent);
+    console.log("input", input);
+    console.log("mult", mult);
+    console.log("xp", xp);
+
+    await (this.actor as BrigandyneActor).updateXp(mult * xp);
     this.render();
   }
 }

@@ -44,6 +44,12 @@
       "notes": "Notes",
       "property": "Property",
       "properties": "Properties",
+      "smallDescription": "Description",
+      "origin": "Origin",
+      "language": "Language",
+      "residual": "Residual",
+      "crisis": "Crisis",
+      "experience": "Experience",
       "weapon": "Weapon",
       "armorTypes": {
         "head": "Headwear",

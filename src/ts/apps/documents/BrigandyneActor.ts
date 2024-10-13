@@ -60,7 +60,23 @@ export default class BrigandyneActor extends Actor {
     });
   }
 
-  public test() {
-    return "test";
+  public async updateXp(xp: number) {
+    const syst = this.system as any as BrigandyneActorSystem;
+
+    if (syst.experience.current + xp < 0) {
+      return;
+    }
+
+    await this.update({
+      "system.experience.total": Math.max(
+        syst.experience.total + xp,
+        syst.experience.total
+      ),
+      "system.experience.current": syst.experience.current + xp,
+      "system.experience.spent": Math.max(
+        syst.experience.spent + xp * -1,
+        syst.experience.spent
+      ),
+    });
   }
 }

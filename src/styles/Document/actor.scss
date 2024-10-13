@@ -63,7 +63,9 @@
   .brigandyne-specialities,
   .brigandyne-talents,
   .brigandyne-inventory,
-  .brigandyne-properties {
+  .brigandyne-properties,
+  .brigandyne-life,
+  .brigandyne-identity {
     @include flex;
     flex-direction: row;
     width: 100%;
@@ -75,7 +77,8 @@
   }
 
   .brigandyne-weapon-section,
-  .brigandyne-armor-section {
+  .brigandyne-armor-section,
+  .brigandyne-experience-section {
     @include flex;
     flex-direction: row;
     width: 100%;
@@ -174,6 +177,41 @@
     .brigandyne-bag {
       input {
         width: 100%;
+      }
+    }
+  }
+
+  .brigandyne-origin {
+    flex-grow: 3;
+  }
+
+  .brigandyne-life {
+    gap: 0.5rem;
+    .brigandyne-language,
+    .brigandyne-residual,
+    .brigandyne-crisis,
+    .brigandyne-experience {
+      @include flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .brigandyne-residual,
+    .brigandyne-crisis {
+      input {
+        width: 4rem;
+      }
+    }
+    .brigandyne-experience-values {
+      text-wrap: nowrap;
+    }
+    .brigandyne-language {
+      width: 100%;
+    }
+    .brigandyne-experience,
+    .brigandyne-experience-section {
+      margin: 0;
+      input {
+        width: 2rem;
       }
     }
   }
