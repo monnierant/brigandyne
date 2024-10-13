@@ -2,6 +2,7 @@
   {{!-- ----------------------------------------- --}}
   {{!-- Header --}}
   {{!-- ----------------------------------------- --}}
+  {{ log actor }}
   <header class="sheet-header">
     <img
       src="{{ actor.img }}"
@@ -204,7 +205,9 @@
   <section class="brigandyne-abilities">
     {{#each actor.system.abilities as |ability|}}
     <div class="brigandyne-ability">
-      <label>{{ ability.name }}</label>
+      <a class="brigandyne-ability-roll" data-ability="{{ @index }}">
+        <label>{{ ability.name }}</label>
+      </a>
       <input
         type="hidden"
         name="system.abilities.{{ @index }}.name"

@@ -1,5 +1,20 @@
 {
   "BRIGANDYNE": {
+    "Global": {
+      "modificator": "Difficulty",
+      "advantage": "Advantage"
+    },
+    "Dialog": {
+      "advantage": {
+        "a30": "3 Advantages or +",
+        "a20": "2 Advantages",
+        "a10": "1 Advantage",
+        "a0": "Without Advantage",
+        "a-10": "1 Disadvantage",
+        "a-20": "2 Disadvantages",
+        "a-30": "3 Disadvantages or -"
+      }
+    },
     "Actor": {
       "name": "Name",
       "destiny": "Destiny",

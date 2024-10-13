@@ -2,6 +2,13 @@
 import { abilities, defaultLenght } from "../../constants";
 import fields = foundry.data.fields;
 
+export interface CaracModBaseCarr {
+  name: string;
+  base: number;
+  modificator: number;
+  carrier: number;
+}
+
 const caracModeBaseCarrSchema = () => ({
   name: new fields.StringField({ required: true }),
   base: new fields.NumberField({ initial: 0 }),
@@ -9,20 +16,41 @@ const caracModeBaseCarrSchema = () => ({
   carrier: new fields.NumberField({ initial: 0 }),
 });
 
+export interface SimpleModeBase {
+  base: number;
+  modificator: number;
+}
+
 const simpleModeBaseSchema = () => ({
   base: new fields.NumberField({ initial: 0 }),
   modificator: new fields.NumberField({ initial: 0 }),
 });
+
+export interface Speciality {
+  name: string;
+  modificator: number;
+}
 
 const specialitySchema = () => ({
   name: new fields.StringField({ initial: "" }),
   modificator: new fields.NumberField({ initial: 0 }),
 });
 
+export interface Talent {
+  name: string;
+  description: string;
+}
+
 const talentSchema = () => ({
   name: new fields.StringField({ initial: "" }),
   description: new fields.StringField({ initial: "" }),
 });
+
+export interface Money {
+  gold: number;
+  silver: number;
+  copper: number;
+}
 
 const moneySchema = () => ({
   gold: new fields.NumberField({ initial: 0 }),
@@ -30,12 +58,39 @@ const moneySchema = () => ({
   copper: new fields.NumberField({ initial: 0 }),
 });
 
+export interface VitalStat {
+  current: number;
+  base: number;
+  modificator: number;
+  line: number;
+}
+
 const vitalStatSchema = () => ({
   current: new fields.NumberField({ initial: 0 }),
   base: new fields.NumberField({ initial: 0 }),
   modificator: new fields.NumberField({ initial: 0 }),
   line: new fields.NumberField({ initial: 0 }),
 });
+
+export interface BrigandyneActorSystem {
+  carrier: string;
+  virtue: string;
+  vice: string;
+  archetype: string;
+  destiny: number;
+  cover: number;
+  protection: number;
+  initiative: SimpleModeBase;
+  health: VitalStat;
+  composure: VitalStat;
+  wound: number;
+  state: string;
+  job: string;
+  abilities: CaracModBaseCarr[];
+  specialities: Speciality[];
+  talents: Talent[];
+  money: Money;
+}
 
 export const brigandyneActorSchema = {
   carrier: new fields.StringField({ initial: "" }),

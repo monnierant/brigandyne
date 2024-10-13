@@ -5,17 +5,19 @@ import "../styles/style.scss";
 // import DogBrowser from "./apps/dogBrowser";
 import BrigandyneItemSheet from "./apps/sheets/BrigandyneItemSheet";
 import BrigandyneActorSheet from "./apps/sheets/BrigandyneActorSheet";
-import BrigandyneActor from "./apps/documents/BrigandyneActor";
+
 import { moduleId } from "./constants";
 import { range } from "./handlebarsHelpers/range";
 import { calculateAbility } from "./handlebarsHelpers/CalculateValues";
 // import brigandyneRoll from "./apps/rolls/cowboybebopRoll";
 // import brigandyneResultRollMessageData from "./apps/messages/cowboybebopResultRollMessageData";
 import { brigandyneActorSchema } from "./apps/schemas/BrigandyneActorSchema";
+import BrigandyneActorDataModel from "./apps/datamodels/BrigandyneActorDataModel";
+import BrigandyneActor from "./apps/documents/BrigandyneActor";
 
 declare global {
   interface DocumentClassConfig {
-    Actor: typeof BrigandyneActor;
+    Actor: BrigandyneActor;
   }
 
   // interface DataModelConfig {
@@ -50,7 +52,8 @@ Hooks.once("init", () => {
     return a / b;
   });
 
-  CONFIG.Actor.dataModels.character = BrigandyneActor;
+  CONFIG.Actor.dataModels.character = BrigandyneActorDataModel;
+  CONFIG.Actor.documentClass = BrigandyneActor;
   // CONFIG.ChatMessage.dataModels.rollMessage = brigandyneResultRollMessageData;
 
   Items.unregisterSheet("core", ItemSheet);
