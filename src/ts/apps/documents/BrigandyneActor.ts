@@ -6,6 +6,7 @@ import {
 
 import BrigandyneActorRollDialog from "../dialogs/BrigandyneRollDialog";
 import { moduleId } from "../../constants";
+import { StatHelpers } from "../helpers/StatHelpers";
 
 export default class BrigandyneActor extends Actor {
   public constructor(data: any, context: any) {
@@ -118,6 +119,32 @@ export default class BrigandyneActor extends Actor {
 
     await this.update({
       "system.spells": spells,
+    });
+  }
+
+  public async updateHealth(health: number) {
+    const syst = this.system as any as BrigandyneActorSystem;
+    const healthValue = Math.clamp(
+      syst.health.current + health,
+      0,
+      StatHelpers.calculateActorHealth(this).max
+    );
+
+    await this.update({
+      "system.health.current": healthValue,
+    });
+  }
+
+  public async updateComposure(composure: number) {
+    const syst = this.system as any as BrigandyneActorSystem;
+    const composureValue = Math.clamp(
+      syst.composure.current + composure,
+      0,
+      StatHelpers.calculateActorComposure(this).max
+    );
+
+    await this.update({
+      "system.composure.current": composureValue,
     });
   }
 }

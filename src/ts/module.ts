@@ -17,10 +17,9 @@ import BrigandyneActor from "./apps/documents/BrigandyneActor";
 import { concat } from "./handlebarsHelpers/concat";
 import { ternary } from "./handlebarsHelpers/ternary";
 import { calculateVital } from "./handlebarsHelpers/CalculateVital";
-import { calculateLine } from "./handlebarsHelpers/CalculateLine";
+import { calculateLine } from "./handlebarsHelpers/Vitals/calculateLine";
 import { calculateComposure } from "./handlebarsHelpers/Vitals/calculateComposure";
 import { calculateVitality } from "./handlebarsHelpers/Vitals/calculateVitality";
-import { calculateInit } from "./handlebarsHelpers/Vitals/calculateinit";
 import { calculateInstability } from "./handlebarsHelpers/Vitals/calculateInstability";
 
 declare global {
@@ -59,7 +58,6 @@ Hooks.once("init", () => {
   Handlebars.registerHelper("ternary", ternary);
   Handlebars.registerHelper("calculateAbility", calculateAbility);
   Handlebars.registerHelper("calculateVital", calculateVital);
-  Handlebars.registerHelper("calculateInit", calculateInit);
   Handlebars.registerHelper("calculateVitality", calculateVitality);
   Handlebars.registerHelper("calculateLine", calculateLine);
   Handlebars.registerHelper("calculateComposure", calculateComposure);

@@ -17,16 +17,6 @@ const caracModeBaseCarrSchema = () => ({
   carrierMax: new fields.NumberField({ initial: 0 }),
 });
 
-export interface SimpleModeBase {
-  base: number;
-  modificator: number;
-}
-
-const simpleModeBaseSchema = () => ({
-  base: new fields.NumberField({ initial: 0 }),
-  modificator: new fields.NumberField({ initial: 0 }),
-});
-
 export interface Speciality {
   name: string;
   modificator: number;
@@ -61,9 +51,7 @@ const moneySchema = () => ({
 
 export interface VitalStat {
   current: number;
-  base: number;
   modificator: number;
-  line: number;
 }
 
 const vitalStatSchema = () => ({
@@ -153,7 +141,7 @@ export interface BrigandyneActorSystem {
   destiny: number;
   cover: number;
   protection: number;
-  initiative: SimpleModeBase;
+  initiative: number;
   health: VitalStat;
   composure: VitalStat;
   state: string;
@@ -187,7 +175,7 @@ export const brigandyneActorSchema = {
   destiny: new fields.NumberField({ initial: 0 }),
   cover: new fields.NumberField({ initial: 0 }),
   protection: new fields.NumberField({ initial: 0 }),
-  initiative: new fields.SchemaField(simpleModeBaseSchema()),
+  initiative: new fields.NumberField({ initial: 0 }),
   health: new fields.SchemaField(vitalStatSchema()),
   composure: new fields.SchemaField(vitalStatSchema()),
   state: new fields.StringField({ initial: "" }),

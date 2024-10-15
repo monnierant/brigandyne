@@ -38,6 +38,9 @@ export default class BrigandyneItemSheet extends ActorSheet {
     data.composure = StatHelpers.calculateActorComposure(
       this.actor as BrigandyneActor
     );
+    data.initiative = StatHelpers.calculateActorInit(
+      this.actor as BrigandyneActor
+    );
     return data;
   }
 
@@ -71,6 +74,12 @@ export default class BrigandyneItemSheet extends ActorSheet {
     html
       .find(".brigandyne-spell-move")
       .on("click", this._onMoveSpell.bind(this));
+    html
+      .find(".brigandyne-health-update")
+      .on("click", this._onUpdateHealth.bind(this));
+    html
+      .find(".brigandyne-composure-update")
+      .on("click", this._onUpdateComposure.bind(this));
   }
 
   // Event Handlers
@@ -92,10 +101,6 @@ export default class BrigandyneItemSheet extends ActorSheet {
     const input = parent.querySelector("input[name='xp']") as HTMLInputElement;
     const mult = parseInt(event.currentTarget.dataset.mult) ?? 0;
     const xp = parseInt(input.value) ?? 0;
-    console.log("parent", parent);
-    console.log("input", input);
-    console.log("mult", mult);
-    console.log("xp", xp);
 
     await (this.actor as BrigandyneActor).updateXp(mult * xp);
     this.render();
@@ -129,6 +134,30 @@ export default class BrigandyneItemSheet extends ActorSheet {
     const spellId = parseInt(event.currentTarget.dataset.spell) ?? -1;
     const direction = parseInt(event.currentTarget.dataset.direction) ?? 1;
     await (this.actor as BrigandyneActor).moveSpell(spellId, direction);
+    this.render();
+  }
+
+  private async _onUpdateHealth(event: JQuery.ClickEvent) {
+    event.preventDefault();
+    const parent = event.currentTarget.parentElement;
+    const input = parent.querySelector(
+      "input[name='health']"
+    ) as HTMLInputElement;
+    const mult = parseInt(event.currentTarget.dataset.mult) ?? 0;
+    const health = parseInt(input.value) ?? 0;
+    await (this.actor as BrigandyneActor).updateHealth(mult * health);
+    this.render();
+  }
+
+  private async _onUpdateComposure(event: JQuery.ClickEvent) {
+    event.preventDefault();
+    const parent = event.currentTarget.parentElement;
+    const input = parent.querySelector(
+      "input[name='composure']"
+    ) as HTMLInputElement;
+    const mult = parseInt(event.currentTarget.dataset.mult) ?? 0;
+    const composure = parseInt(input.value) ?? 0;
+    await (this.actor as BrigandyneActor).updateComposure(mult * composure);
     this.render();
   }
 }

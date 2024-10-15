@@ -9,6 +9,24 @@
   display: none;
 }
 
+.brigandyne-vital-modificator {
+  width: 2.5rem !important;
+}
+
+.brigandyne-separator {
+  width: 0.5rem;
+}
+
+.brigandyne-composure-update,
+.brigandyne-health-update {
+  margin: 0 0.1rem;
+}
+
+.brigandyne-spreader {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
 .actor-sheet {
   img {
     height: 175px !important;
@@ -81,6 +99,18 @@
     width: 100%;
     gap: 0.5rem;
     margin: 0.5rem 0;
+  }
+
+  .brigandyne-header-section-armor,
+  .brigandyne-header-section-init {
+    input {
+      width: 2rem;
+    }
+  }
+  .brigandyne-header-section-destiny {
+    input {
+      width: 3rem;
+    }
   }
 
   .brigandyne-spells-section {
