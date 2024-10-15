@@ -16,6 +16,12 @@ import BrigandyneActorDataModel from "./apps/datamodels/BrigandyneActorDataModel
 import BrigandyneActor from "./apps/documents/BrigandyneActor";
 import { concat } from "./handlebarsHelpers/concat";
 import { ternary } from "./handlebarsHelpers/ternary";
+import { calculateVital } from "./handlebarsHelpers/CalculateVital";
+import { calculateLine } from "./handlebarsHelpers/CalculateLine";
+import { calculateComposure } from "./handlebarsHelpers/Vitals/calculateComposure";
+import { calculateVitality } from "./handlebarsHelpers/Vitals/calculateVitality";
+import { calculateInit } from "./handlebarsHelpers/Vitals/calculateinit";
+import { calculateInstability } from "./handlebarsHelpers/Vitals/calculateInstability";
 
 declare global {
   interface DocumentClassConfig {
@@ -33,6 +39,7 @@ declare global {
 async function preloadTemplates(): Promise<any> {
   const templatePaths = [
     `systems/${moduleId}/templates/partials/actor/header.hbs`,
+    `systems/${moduleId}/templates/partials/actor/hpmpbar.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/abilities.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/inventory.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/spells.hbs`,
@@ -51,6 +58,12 @@ Hooks.once("init", () => {
   Handlebars.registerHelper("concat", concat);
   Handlebars.registerHelper("ternary", ternary);
   Handlebars.registerHelper("calculateAbility", calculateAbility);
+  Handlebars.registerHelper("calculateVital", calculateVital);
+  Handlebars.registerHelper("calculateInit", calculateInit);
+  Handlebars.registerHelper("calculateVitality", calculateVitality);
+  Handlebars.registerHelper("calculateLine", calculateLine);
+  Handlebars.registerHelper("calculateComposure", calculateComposure);
+  Handlebars.registerHelper("calculateInstability", calculateInstability);
 
   Handlebars.registerHelper("divide", function (a: number, b: number) {
     return a / b;

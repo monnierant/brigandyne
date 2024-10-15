@@ -6,6 +6,7 @@ import {
   tabs,
 } from "../../constants";
 import BrigandyneActor from "../documents/BrigandyneActor";
+import { StatHelpers } from "../helpers/StatHelpers";
 import { brigandyneActorSchema, Spell } from "../schemas/BrigandyneActorSchema";
 
 export default class BrigandyneItemSheet extends ActorSheet {
@@ -30,6 +31,13 @@ export default class BrigandyneItemSheet extends ActorSheet {
     data.spellTypes = spellTypes;
     data.spellDifficulties = spellDifficulties;
     data.spellResistances = ["-", ...abilities];
+    data.abilities = abilities;
+    data.health = StatHelpers.calculateActorHealth(
+      this.actor as BrigandyneActor
+    );
+    data.composure = StatHelpers.calculateActorComposure(
+      this.actor as BrigandyneActor
+    );
     return data;
   }
 

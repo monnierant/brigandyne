@@ -64,6 +64,7 @@
       </div>
       <div>
         <label>{{localize 'BRIGANDYNE.Actor.health'}}</label>
+        {{> 'systems/brigandyne/templates/partials/actor/hpmpbar.hbs' color="#b71c1c" value=health}}
         <div class="brigandyne-header-section">
           <input
             name="system.health.current"
@@ -89,6 +90,8 @@
       </div>
       <div>
         <label>{{localize 'BRIGANDYNE.Actor.composure'}}</label>
+        {{> 'systems/brigandyne/templates/partials/actor/hpmpbar.hbs' color="#1C7BB8" value=composure}}
+
         <div class="brigandyne-header-section">
           <input
             name="system.composure.current"
