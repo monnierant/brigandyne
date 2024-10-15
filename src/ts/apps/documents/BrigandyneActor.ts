@@ -1,6 +1,7 @@
 import {
   BrigandyneActorSystem,
   CaracModBaseCarr,
+  Spell,
 } from "../schemas/BrigandyneActorSchema";
 
 import BrigandyneActorRollDialog from "../dialogs/BrigandyneRollDialog";
@@ -77,6 +78,14 @@ export default class BrigandyneActor extends Actor {
         syst.experience.spent + xp * -1,
         syst.experience.spent
       ),
+    });
+  }
+
+  public async addSpell(spell: Spell) {
+    const syst = this.system as any as BrigandyneActorSystem;
+
+    await this.update({
+      "system.spells": [...syst.spells, spell],
     });
   }
 }

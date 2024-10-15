@@ -36,6 +36,7 @@
       "wound": "Blessures",
       "state": "État",
       "job": "Métier",
+      "motivation": "Motivation",
       "money": "Argent",
       "kit": "Nécessaire",
       "bag": "Type de sac",
@@ -50,7 +51,15 @@
       "residual": "Séquelle",
       "crisis": "Crise",
       "experience": "Expérience",
+      "historical": "Historique",
       "weapon": "Arme",
+      "identity": "Identité",
+      "spells": "Sorts",
+      "spelltype": {
+        "ritual": "Rituel",
+        "spell": "Sort",
+        "trick": "Astuce"
+      },
       "armorTypes": {
         "head": "Couvre-chef",
         "shield": "Bouclier",

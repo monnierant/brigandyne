@@ -123,6 +123,28 @@ const armorSchema = () => ({
   properties: new fields.StringField({ initial: "" }),
 });
 
+export interface Spell {
+  name: string;
+  difficulty: number;
+  type: string;
+  duration: number;
+  range: number;
+  resistance: number;
+  formula: string;
+  description: string;
+}
+
+const spellSchema = () => ({
+  name: new fields.StringField({ initial: "" }),
+  difficulty: new fields.NumberField({ initial: 0 }),
+  type: new fields.StringField({ initial: "" }),
+  duration: new fields.NumberField({ initial: 0 }),
+  range: new fields.NumberField({ initial: 0 }),
+  resistance: new fields.NumberField({ initial: 0 }),
+  formula: new fields.StringField({ initial: "" }),
+  description: new fields.StringField({ initial: "" }),
+});
+
 export interface BrigandyneActorSystem {
   carrier: string;
   virtue: string;
@@ -135,7 +157,6 @@ export interface BrigandyneActorSystem {
   health: VitalStat;
   composure: VitalStat;
   state: string;
-  job: string;
   abilities: CaracModBaseCarr[];
   specialities: Speciality[];
   talents: Talent[];
@@ -151,8 +172,11 @@ export interface BrigandyneActorSystem {
   crisis: number;
   experience: Experience;
   experienceDetails: string;
+  experienceDetails2: string;
   smallDescription: string;
   origin: string;
+  motivation: string;
+  spells: Spell[];
 }
 
 export const brigandyneActorSchema = {
@@ -167,7 +191,6 @@ export const brigandyneActorSchema = {
   health: new fields.SchemaField(vitalStatSchema()),
   composure: new fields.SchemaField(vitalStatSchema()),
   state: new fields.StringField({ initial: "" }),
-  job: new fields.StringField({ initial: "" }),
   abilities: new fields.ArrayField(
     new fields.SchemaField(caracModeBaseCarrSchema()),
     {
@@ -234,8 +257,13 @@ export const brigandyneActorSchema = {
     },
   }),
   experienceDetails: new fields.StringField({ initial: "" }),
+  experienceDetails2: new fields.StringField({ initial: "" }),
   smallDescription: new fields.StringField({ initial: "" }),
   origin: new fields.StringField({ initial: "" }),
+  motivation: new fields.StringField({ initial: "" }),
+  spells: new fields.ArrayField(new fields.SchemaField(spellSchema()), {
+    initial: [],
+  }),
 };
 
 export type BrigandyneActorSchema = typeof brigandyneActorSchema;

@@ -12,6 +12,8 @@ export const defaultLenght = {
 
 export const tabs = ["abilities", "inventory", "histo", "spells"];
 
+export const spellTypes = ["spell", "ritual", "trick"];
+
 export const armorTypes = ["head", "shield", "body"];
 
 export const moduleId: string = id;

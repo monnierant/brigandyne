@@ -36,6 +36,7 @@
       "wound": "Wounds",
       "state": "State",
       "job": "Job",
+      "motivation": "Motivation",
       "money": "Money",
       "kit": "Kit",
       "bag": "Type of bag",
@@ -50,7 +51,15 @@
       "residual": "Residual",
       "crisis": "Crisis",
       "experience": "Experience",
+      "historical": "Historical",
       "weapon": "Weapon",
+      "identity": "Identity",
+      "spells": "Spells",
+      "spelltype": {
+        "ritual": "Ritual",
+        "spell": "Spell",
+        "trick": "Trick"
+      },
       "armorTypes": {
         "head": "Headwear",
         "shield": "Shield",

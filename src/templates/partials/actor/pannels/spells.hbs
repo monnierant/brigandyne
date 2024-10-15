@@ -5,5 +5,60 @@
 {{/if}}
 "
 >
-  Spells
+  {{ log spellTypes}}
+  <h3>
+    {{ localize 'BRIGANDYNE.Actor.spells' }} &nbsp;
+    <a class="brigandyne-spell-add"><i class="fa-solid fa-circle-plus"></i></a>
+  </h3>
+  <section class="brigandyne-spells">
+    {{#each actor.system.spells as |spell|}}
+    <div class="brigandyne-spell">
+      <input
+        type="text"
+        name="system.spells.{{ @index }}.name"
+        value="{{ spell.name }}"
+      />
+      <select name="system.spells.{{ @index }}.type" value="{{ spell.type }}">
+        {{#each ../spellTypes as |type|}}
+        {{#if (eq type ../type)}}
+        <option selected value="{{ type }}">
+          {{ localize (concat 'BRIGANDYNE.Actor.spelltype.' type) }}
+        </option>
+        {{else}}
+        <option value="{{ type }}">
+          {{ localize (concat 'BRIGANDYNE.Actor.spelltype.' type) }}
+        </option>
+        {{/if}}
+        {{/each}}
+      </select>
+
+      <input
+        name="system.spells.{{ @index }}.difficulty"
+        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
+        value="{{ spell.difficulty }}"
+      />
+      <input
+        name="system.spells.{{ @index }}.duration"
+        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
+        value="{{ spell.duration }}"
+      />
+      <input
+        name="system.spells.{{ @index }}.range"
+        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
+        value="{{ spell.range }}"
+      />
+      <input
+        name="system.spells.{{ @index }}.resistance"
+        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
+        value="{{ spell.resistance }}"
+      />
+      <textarea name="system.spells.{{ @index }}.formula" rows="5">{{
+        spell.formula
+      }}</textarea>
+      <textarea name="system.spells.{{ @index }}.description" rows="5">{{
+        spell.description
+      }}</textarea>
+    </div>
+    {{/each}}
+  </section>
 </div>

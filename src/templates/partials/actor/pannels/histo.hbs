@@ -5,33 +5,39 @@
   hidden
 {{/if}}"
 >
+  <h3>{{ localize 'BRIGANDYNE.Actor.identity' }}</h3>
   <section class="brigandyne-identity">
     <div class="brigandyne-identity-info">
       <div class="brigandyne-header-name">
         <label>{{localize 'BRIGANDYNE.Actor.name'}}</label>
         <input name="name" type="text" value="{{ actor.name }}" />
       </div>
-      <div class="brigandyne-job">
-        <label>{{localize 'BRIGANDYNE.Actor.job'}}</label>
-        <input name="system.job" type="Text" value="{{ actor.system.job }}" />
-      </div>
-      <div class="brigandyne-small-description">
-        <label>{{localize 'BRIGANDYNE.Actor.smallDescription'}}</label>
+      <div class="brigandyne-motivation">
+        <label>{{localize 'BRIGANDYNE.Actor.motivation'}}</label>
         <input
-          name="system.smallDescription"
+          name="system.motivation"
           type="Text"
-          value="{{ actor.system.smallDescription }}"
+          value="{{ actor.system.motivation }}"
         />
       </div>
     </div>
+    <div class="brigandyne-small-description">
+      <label>{{localize 'BRIGANDYNE.Actor.smallDescription'}}</label>
+      <input
+        name="system.smallDescription"
+        type="Text"
+        value="{{ actor.system.smallDescription }}"
+      />
+    </div>
     <div class="brigandyne-origin">
       <label>{{localize 'BRIGANDYNE.Actor.origin'}}</label>
-      <textarea name="system.origin" rows="8">{{
+      <textarea name="system.origin" rows="5">{{
         actor.system.origin
       }}</textarea>
     </div>
   </section>
 
+  <h3>{{ localize 'BRIGANDYNE.Actor.historical' }}</h3>
   <section class="brigandyne-life">
     <div class="brigandyne-language">
       <label>{{localize 'BRIGANDYNE.Actor.language'}}</label>
@@ -88,6 +94,20 @@
           <i class="fa-solid fa-square-plus"></i>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section class="brigandyne-notes">
+    {{!-----------------------------------------}}
+    {{!-- notes --}}
+    {{!-----------------------------------------}}
+    <div class="brigandyne-note">
+      <textarea name="system.experienceDetails" rows="10">{{
+        actor.system.experienceDetails
+      }}</textarea>
+      <textarea name="system.experienceDetails2" rows="10">{{
+        actor.system.experienceDetails2
+      }}</textarea>
     </div>
   </section>
 </div>

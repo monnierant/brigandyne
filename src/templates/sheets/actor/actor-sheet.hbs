@@ -4,6 +4,6 @@
   {{> "systems/brigandyne/templates/partials/actor/header.hbs" actor=actor}}
 
   {{#each tabs as |onetab|}}
-  {{> (concat (concat "systems/brigandyne/templates/partials/actor/pannels/" onetab) ".hbs") actor=../actor display=(eq onetab ../tab)}}
+  {{> (concat (concat "systems/brigandyne/templates/partials/actor/pannels/" onetab) ".hbs") spellTypes=../spellTypes actor=../actor display=(eq onetab ../tab)}}
   {{/each}}
 </form>

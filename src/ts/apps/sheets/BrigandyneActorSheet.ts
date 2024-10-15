@@ -1,6 +1,6 @@
-import { moduleId, tabs } from "../../constants";
+import { moduleId, spellTypes, tabs } from "../../constants";
 import BrigandyneActor from "../documents/BrigandyneActor";
-import { brigandyneActorSchema } from "../schemas/BrigandyneActorSchema";
+import { brigandyneActorSchema, Spell } from "../schemas/BrigandyneActorSchema";
 
 export default class BrigandyneItemSheet extends ActorSheet {
   constructor(object: any, options = {}) {
@@ -21,6 +21,7 @@ export default class BrigandyneItemSheet extends ActorSheet {
     // data.actor = this.actor as BrigandyneActor;
     data.tabs = this.tabs;
     data.tab = this.tab;
+    data.spellTypes = spellTypes;
     return data;
   }
 
@@ -37,8 +38,6 @@ export default class BrigandyneItemSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    html.find(".brigandyne-xp").on("click", this._onUpdateXp.bind(this));
-
     if (typeof this.actor.system == typeof brigandyneActorSchema) {
       this.activateListenersPC(html);
     }
@@ -47,6 +46,9 @@ export default class BrigandyneItemSheet extends ActorSheet {
   private activateListenersPC(html: JQuery) {
     html.find(".cowboy-admin-action-health");
     // .on("click", this._onDamage.bind(this));
+
+    html.find(".brigandyne-xp").on("click", this._onUpdateXp.bind(this));
+    html.find(".brigandyne-spell-add").on("click", this._onAddSpell.bind(this));
   }
 
   // Event Handlers
@@ -74,6 +76,22 @@ export default class BrigandyneItemSheet extends ActorSheet {
     console.log("xp", xp);
 
     await (this.actor as BrigandyneActor).updateXp(mult * xp);
+    this.render();
+  }
+
+  private async _onAddSpell(event: JQuery.ClickEvent) {
+    event.preventDefault();
+    const spell: Spell = {
+      name: "",
+      description: "",
+      difficulty: 0,
+      duration: 0,
+      formula: "",
+      range: 0,
+      resistance: 0,
+      type: spellTypes[0],
+    };
+    await (this.actor as BrigandyneActor).addSpell(spell);
     this.render();
   }
 }

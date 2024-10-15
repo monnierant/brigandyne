@@ -25,10 +25,6 @@
     width: 100%;
   }
 
-  .brigandyne-header-name {
-    width: 100%;
-  }
-
   .brigandyne-header-section-wound {
     gap: 0.5rem;
   }
@@ -183,6 +179,24 @@
 
   .brigandyne-origin {
     flex-grow: 3;
+  }
+
+  .brigandyne-identity {
+    flex-direction: column;
+    .brigandyne-identity-info {
+      @include flex;
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+    .brigandyne-identity-info,
+    .brigandyne-small-description,
+    .brigandyne-origin {
+      width: 100%;
+    }
+  }
+
+  .brigandyne-motivation {
+    flex-grow: 5;
   }
 
   .brigandyne-life {

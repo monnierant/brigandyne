@@ -15,6 +15,7 @@ import { brigandyneActorSchema } from "./apps/schemas/BrigandyneActorSchema";
 import BrigandyneActorDataModel from "./apps/datamodels/BrigandyneActorDataModel";
 import BrigandyneActor from "./apps/documents/BrigandyneActor";
 import { concat } from "./handlebarsHelpers/concat";
+import { ternary } from "./handlebarsHelpers/ternary";
 
 declare global {
   interface DocumentClassConfig {
@@ -48,6 +49,7 @@ Hooks.once("init", () => {
 
   Handlebars.registerHelper("range", range);
   Handlebars.registerHelper("concat", concat);
+  Handlebars.registerHelper("ternary", ternary);
   Handlebars.registerHelper("calculateAbility", calculateAbility);
 
   Handlebars.registerHelper("divide", function (a: number, b: number) {
