@@ -1,4 +1,10 @@
-import { moduleId, spellTypes, tabs } from "../../constants";
+import {
+  abilities,
+  moduleId,
+  spellDifficulties,
+  spellTypes,
+  tabs,
+} from "../../constants";
 import BrigandyneActor from "../documents/BrigandyneActor";
 import { brigandyneActorSchema, Spell } from "../schemas/BrigandyneActorSchema";
 
@@ -22,6 +28,8 @@ export default class BrigandyneItemSheet extends ActorSheet {
     data.tabs = this.tabs;
     data.tab = this.tab;
     data.spellTypes = spellTypes;
+    data.spellDifficulties = spellDifficulties;
+    data.spellResistances = ["-", ...abilities];
     return data;
   }
 
@@ -49,6 +57,12 @@ export default class BrigandyneItemSheet extends ActorSheet {
 
     html.find(".brigandyne-xp").on("click", this._onUpdateXp.bind(this));
     html.find(".brigandyne-spell-add").on("click", this._onAddSpell.bind(this));
+    html
+      .find(".brigandyne-spell-delete")
+      .on("click", this._onDeleteSpell.bind(this));
+    html
+      .find(".brigandyne-spell-move")
+      .on("click", this._onMoveSpell.bind(this));
   }
 
   // Event Handlers
@@ -88,10 +102,25 @@ export default class BrigandyneItemSheet extends ActorSheet {
       duration: 0,
       formula: "",
       range: 0,
-      resistance: 0,
+      resistance: "-",
       type: spellTypes[0],
     };
     await (this.actor as BrigandyneActor).addSpell(spell);
+    this.render();
+  }
+
+  private async _onDeleteSpell(event: JQuery.ClickEvent) {
+    event.preventDefault();
+    const spellId = parseInt(event.currentTarget.dataset.spell) ?? -1;
+    await (this.actor as BrigandyneActor).deleteSpell(spellId);
+    this.render();
+  }
+
+  private async _onMoveSpell(event: JQuery.ClickEvent) {
+    event.preventDefault();
+    const spellId = parseInt(event.currentTarget.dataset.spell) ?? -1;
+    const direction = parseInt(event.currentTarget.dataset.direction) ?? 1;
+    await (this.actor as BrigandyneActor).moveSpell(spellId, direction);
     this.render();
   }
 }

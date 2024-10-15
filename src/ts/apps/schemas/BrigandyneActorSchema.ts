@@ -129,7 +129,7 @@ export interface Spell {
   type: string;
   duration: number;
   range: number;
-  resistance: number;
+  resistance: string;
   formula: string;
   description: string;
 }
@@ -140,7 +140,7 @@ const spellSchema = () => ({
   type: new fields.StringField({ initial: "" }),
   duration: new fields.NumberField({ initial: 0 }),
   range: new fields.NumberField({ initial: 0 }),
-  resistance: new fields.NumberField({ initial: 0 }),
+  resistance: new fields.StringField({ initial: "-" }),
   formula: new fields.StringField({ initial: "" }),
   description: new fields.StringField({ initial: "" }),
 });

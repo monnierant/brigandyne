@@ -55,10 +55,20 @@
       "weapon": "Arme",
       "identity": "Identité",
       "spells": "Sorts",
+      "spell": {
+        "name": "Nom",
+        "type": "Type",
+        "difficulty": "Difficulté",
+        "duration": "Durée",
+        "range": "Portée",
+        "resistance": "Résistance",
+        "formula": "Formule",
+        "description": "Description"
+      },
       "spelltype": {
         "ritual": "Rituel",
         "spell": "Sort",
-        "trick": "Astuce"
+        "trick": "Tour"
       },
       "armorTypes": {
         "head": "Couvre-chef",

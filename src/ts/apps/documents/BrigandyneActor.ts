@@ -88,4 +88,36 @@ export default class BrigandyneActor extends Actor {
       "system.spells": [...syst.spells, spell],
     });
   }
+
+  public async deleteSpell(spellId: number) {
+    const syst = this.system as any as BrigandyneActorSystem;
+    console.log("spellId", spellId);
+    console.log(
+      syst.spells.filter((spell: Spell, index: number) =>
+        spell ? index !== spellId : true
+      )
+    );
+    await this.update({
+      "system.spells": syst.spells.filter((spell: Spell, index: number) =>
+        spell ? index !== spellId : true
+      ),
+    });
+  }
+
+  public async moveSpell(spellId: number, direction: number) {
+    const syst = this.system as any as BrigandyneActorSystem;
+
+    if (spellId + direction < 0 || spellId + direction >= syst.spells.length) {
+      return;
+    }
+
+    let spells = [...syst.spells];
+    const spell = spells[spellId];
+    spells[spellId] = spells[spellId + direction];
+    spells[spellId + direction] = spell;
+
+    await this.update({
+      "system.spells": spells,
+    });
+  }
 }

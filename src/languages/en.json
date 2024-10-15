@@ -55,6 +55,16 @@
       "weapon": "Weapon",
       "identity": "Identity",
       "spells": "Spells",
+      "spell": {
+        "name": "Name",
+        "type": "Type",
+        "difficulty": "Difficulty",
+        "duration": "Duration",
+        "range": "Range",
+        "resistance": "Resistance",
+        "formula": "Formula",
+        "description": "Description"
+      },
       "spelltype": {
         "ritual": "Ritual",
         "spell": "Spell",

@@ -10,54 +10,146 @@
     {{ localize 'BRIGANDYNE.Actor.spells' }} &nbsp;
     <a class="brigandyne-spell-add"><i class="fa-solid fa-circle-plus"></i></a>
   </h3>
-  <section class="brigandyne-spells">
+  <section class="brigandyne-spells-section">
     {{#each actor.system.spells as |spell|}}
     <div class="brigandyne-spell">
-      <input
-        type="text"
-        name="system.spells.{{ @index }}.name"
-        value="{{ spell.name }}"
-      />
-      <select name="system.spells.{{ @index }}.type" value="{{ spell.type }}">
-        {{#each ../spellTypes as |type|}}
-        {{#if (eq type ../type)}}
-        <option selected value="{{ type }}">
-          {{ localize (concat 'BRIGANDYNE.Actor.spelltype.' type) }}
-        </option>
-        {{else}}
-        <option value="{{ type }}">
-          {{ localize (concat 'BRIGANDYNE.Actor.spelltype.' type) }}
-        </option>
-        {{/if}}
-        {{/each}}
-      </select>
+      <div class="brigandyne-spell-name">
+        <a
+          class="brigandyne-spell-move"
+          data-direction="-1"
+          data-spell="{{ @index }}"
+        >
+          <i class="fa-solid fa-caret-left"></i>
+        </a>
+        <input
+          id="spell-name-{{ @index }}"
+          type="text"
+          name="system.spells.{{ @index }}.name"
+          value="{{ spell.name }}"
+          placeholder="{{ localize 'BRIGANDYNE.Actor.spell.name' }}"
+        />
+        <a
+          class="brigandyne-spell-move"
+          data-direction="1"
+          data-spell="{{ @index }}"
+        >
+          <i class="fa-solid fa-caret-right"></i>
+        </a>
+      </div>
+      <div class="brigandyne-spell-type">
+        <select
+          id="spell-type-{{ @index }}"
+          name="system.spells.{{ @index }}.type"
+          value="{{ spell.type }}"
+        >
+          {{#each ../spellTypes as |type|}}
+          {{#if (eq type ../type)}}
+          <option selected value="{{ type }}">
+            {{ localize (concat 'BRIGANDYNE.Actor.spelltype.' type) }}
+          </option>
+          {{else}}
+          <option value="{{ type }}">
+            {{ localize (concat 'BRIGANDYNE.Actor.spelltype.' type) }}
+          </option>
+          {{/if}}
+          {{/each}}
+        </select>
 
-      <input
-        name="system.spells.{{ @index }}.difficulty"
-        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
-        value="{{ spell.difficulty }}"
-      />
-      <input
-        name="system.spells.{{ @index }}.duration"
-        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
-        value="{{ spell.duration }}"
-      />
-      <input
-        name="system.spells.{{ @index }}.range"
-        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
-        value="{{ spell.range }}"
-      />
-      <input
-        name="system.spells.{{ @index }}.resistance"
-        type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
-        value="{{ spell.resistance }}"
-      />
-      <textarea name="system.spells.{{ @index }}.formula" rows="5">{{
-        spell.formula
-      }}</textarea>
-      <textarea name="system.spells.{{ @index }}.description" rows="5">{{
-        spell.description
-      }}</textarea>
+        <select
+          id="spell-difficulty-{{ @index }}"
+          name="system.spells.{{ @index }}.difficulty"
+        >
+          {{#each ../spellDifficulties as |difficulty|}}
+          {{#if (eq difficulty ../difficulty)}}
+          <option selected value="{{ difficulty }}">{{ difficulty }}</option>
+          {{else}}
+          <option value="{{ difficulty }}">{{ difficulty }}</option>
+          {{/if}}
+          {{/each}}
+        </select>
+
+        <a class="brigandyne-spell-delete" data-spell="{{ @index }}">
+          <i class="fa-solid fa-trash"></i>
+        </a>
+      </div>
+
+      <div class="brigandyne-spell-infos">
+        <div
+          class="spell-info {{ ternary (eq spell.type 'trick') 'hidden' '' }}"
+        >
+          <label
+            for="spell-duration-{{ @index }}"
+            >{{ localize 'BRIGANDYNE.Actor.spell.duration' }}</label
+          >
+          <input
+            id="spell-duration-{{ @index }}"
+            name="system.spells.{{ @index }}.duration"
+            type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
+            value="{{ spell.duration }}"
+          />
+        </div>
+
+        <div
+          class="spell-info {{ ternary (eq spell.type 'trick') 'hidden' '' }}"
+        >
+          <label
+            for="spell-range-{{ @index }}"
+            >{{ localize 'BRIGANDYNE.Actor.spell.range' }}</label
+          >
+          <input
+            id="spell-range-{{ @index }}"
+            name="system.spells.{{ @index }}.range"
+            type="{{ ternary (eq spell.type 'trick') 'hidden' 'number' }}"
+            value="{{ spell.range }}"
+          />
+        </div>
+
+        <div
+          class="spell-info {{ ternary (eq spell.type 'trick') 'hidden' '' }}"
+        >
+          <label
+            for="spell-resistance-{{ @index }}"
+            >{{ localize 'BRIGANDYNE.Actor.spell.resistance' }}</label
+          >
+          <select
+            id="spell-resistance-{{ @index }}"
+            name="system.spells.{{ @index }}.resistance"
+          >
+            {{#each ../spellResistances as |resistance|}}
+            {{#if (eq resistance ../resistance)}}
+            <option selected value="{{ resistance }}">{{ resistance }}</option>
+            {{else}}
+            <option value="{{ resistance }}">{{ resistance }}</option>
+            {{/if}}
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div>
+        <label
+          for="spell-formula-{{ @index }}"
+          >{{ localize 'BRIGANDYNE.Actor.spell.formula' }}</label
+        >
+        <textarea
+          id="spell-formula-{{ @index }}"
+          name="system.spells.{{ @index }}.formula"
+          rows="3"
+          >{{ spell.formula }}</textarea
+        >
+      </div>
+
+      <div>
+        <label
+          for="spell-description-{{ @index }}"
+          >{{ localize 'BRIGANDYNE.Actor.spell.description' }}</label
+        >
+        <textarea
+          id="spell-description-{{ @index }}"
+          name="system.spells.{{ @index }}.description"
+          rows="6"
+          >{{ spell.description }}</textarea
+        >
+      </div>
     </div>
     {{/each}}
   </section>

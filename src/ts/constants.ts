@@ -14,6 +14,8 @@ export const tabs = ["abilities", "inventory", "histo", "spells"];
 
 export const spellTypes = ["spell", "ritual", "trick"];
 
+export const spellDifficulties = [+20, +10, 0, -10, -20, -30];
+
 export const armorTypes = ["head", "shield", "body"];
 
 export const moduleId: string = id;
