@@ -1,0 +1,69 @@
+<div class="brigandyne-dialog-content">
+  <h2>{{ ability.name }}</h2>
+  <section class="brigandyne-dialog-modifiers">
+    <div class="brigandyne-dialog-modifier">
+      <label
+        for="brigandyne-dialog-modifier-advantage"
+        >{{ localize 'BRIGANDYNE.Global.advantage' }}</label
+      >
+      <select id="brigandyne-dialog-modifier-advantage">
+        <option value="30">
+          {{ localize 'BRIGANDYNE.Dialog.advantage.a30' }}
+        </option>
+        <option value="20">
+          {{ localize 'BRIGANDYNE.Dialog.advantage.a20' }}
+        </option>
+        <option value="10">
+          {{ localize 'BRIGANDYNE.Dialog.advantage.a10' }}
+        </option>
+        <option selected value="0">
+          {{ localize 'BRIGANDYNE.Dialog.advantage.a0' }}
+        </option>
+        <option value="-10">
+          {{ localize 'BRIGANDYNE.Dialog.advantage.a-10' }}
+        </option>
+        <option value="-20">
+          {{ localize 'BRIGANDYNE.Dialog.advantage.a-20' }}
+        </option>
+        <option value="-30">
+          {{ localize 'BRIGANDYNE.Dialog.advantage.a-30' }}
+        </option>
+      </select>
+    </div>
+    <div class="brigandyne-dialog-modifier">
+      <label
+        for="brigandyne-dialog-modifier-difficulty"
+        >{{ localize 'BRIGANDYNE.Global.difficulty' }}</label
+      >
+      <input
+        type="number"
+        id="brigandyne-dialog-modifier-difficulty"
+        value=""
+      />
+    </div>
+    <div class="brigandyne-dialog-modifier">
+      <label
+        for="brigandyne-dialog-modifier-modificator"
+        >{{ localize 'BRIGANDYNE.Global.modificator' }}</label
+      >
+      <input
+        type="number"
+        id="brigandyne-dialog-modifier-modificator"
+        value=""
+      />
+    </div>
+  </section>
+</div>
+<div class="dialog-buttons">
+  {{#each buttons as |button id|}}
+
+  <button
+    class="dialog-button {{ cssClass }}"
+    data-button="{{ id }}"
+    {{disabled
+    button.disabled}}
+  >
+    {{{button.icon}}} {{{button.label}}}
+  </button>
+  {{/each}}
+</div>

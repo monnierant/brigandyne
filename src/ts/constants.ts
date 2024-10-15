@@ -3,8 +3,20 @@ import { id } from "../system.json";
 
 export const defaultLenght = {
   speciality: 6,
-  talent: 6,
+  talent: 5,
+  weapons: 4,
+  kits: 4,
+  properties: 4,
+  bags: 3,
 };
+
+export const tabs = ["abilities", "inventory", "histo", "spells"];
+
+export const spellTypes = ["spell", "ritual", "trick"];
+
+export const spellDifficulties = [+20, +10, 0, -10, -20, -30];
+
+export const armorTypes = ["head", "shield", "body"];
 
 export const moduleId: string = id;
 

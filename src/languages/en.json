@@ -1,6 +1,23 @@
 {
   "BRIGANDYNE": {
+    "Global": {
+      "modificator": "Modificator",
+      "difficulty": "Difficulty",
+      "advantage": "Advantage"
+    },
+    "Dialog": {
+      "advantage": {
+        "a30": "3 Advantages or +",
+        "a20": "2 Advantages",
+        "a10": "1 Advantage",
+        "a0": "Without Advantage",
+        "a-10": "1 Disadvantage",
+        "a-20": "2 Disadvantages",
+        "a-30": "3 Disadvantages or -"
+      }
+    },
     "Actor": {
+      "name": "Name",
       "destiny": "Destiny",
       "carrier": "Carrier",
       "virtue": "Virtue",
@@ -8,9 +25,78 @@
       "archetype": "Archetype",
       "armor": "Armor",
       "talents": "Talents",
+      "talent": "Talent",
       "specialities": "Specialities",
       "abilities": "Abilities",
-      "name": "Name"
+      "speciality": "Speciality",
+      "ability": "Ability",
+      "initiative": "Initiative",
+      "health": "Health",
+      "composure": "Composure",
+      "wound": "Wounds",
+      "state": "State",
+      "job": "Job",
+      "motivation": "Motivation",
+      "money": "Money",
+      "kit": "Kit",
+      "bag": "Type of bag",
+      "inventory": "Inventory",
+      "equipment": "Equipment",
+      "notes": "Notes",
+      "property": "Property",
+      "properties": "Properties",
+      "smallDescription": "Description",
+      "origin": "Origin",
+      "language": "Language",
+      "residual": "Residual",
+      "crisis": "Crisis",
+      "experience": "Experience",
+      "historical": "Historical",
+      "weapon": "Weapon",
+      "identity": "Identity",
+      "spells": "Spells",
+      "spell": {
+        "name": "Name",
+        "type": "Type",
+        "difficulty": "Difficulty",
+        "duration": "Duration",
+        "range": "Range",
+        "resistance": "Resistance",
+        "formula": "Formula",
+        "description": "Description"
+      },
+      "spelltype": {
+        "ritual": "Ritual",
+        "spell": "Spell",
+        "trick": "Trick"
+      },
+      "armorTypes": {
+        "head": "Headwear",
+        "shield": "Shield",
+        "body": "Armor"
+      },
+      "tabs": {
+        "abilities": "Stats",
+        "inventory": "Inventory",
+        "spells": "Spells",
+        "histo": "History",
+        "notes": "Notes"
+      },
+      "tooltips": {
+        "base": "Base",
+        "modificator": "Modificator",
+        "total": "Total",
+        "line": "Line",
+        "destiny": "Destiny is a measure of the character's fate and fortune.",
+        "carrier": "Carrier is the character's profession or occupation.",
+        "virtue": "Virtue is the character's moral compass.",
+        "vice": "Vice is the character's moral failing.",
+        "archetype": "Archetype is the character's role in the world.",
+        "armor": "Armor is the character's protective gear.",
+        "talents": "Talents are the character's unique abilities.",
+        "specialities": "Specialities are the character's areas of expertise.",
+        "abilities": "Abilities are the character's learned skills."
+      }
     }
   }
 }

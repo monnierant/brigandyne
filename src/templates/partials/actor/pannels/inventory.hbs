@@ -1,0 +1,61 @@
+<div
+  class="
+{{#if (not display)}}
+  hidden
+{{/if}}
+"
+>
+  <h3>{{localize 'BRIGANDYNE.Actor.properties'}}</h3>
+  <section class="brigandyne-properties">
+    {{!-----------------------------------------}}
+    {{!-- properties --}}
+    {{!-----------------------------------------}}
+    {{#each actor.system.properties as |property|}}
+    <div class="brigandyne-property">
+      <input
+        type="text"
+        name="system.properties.{{ @index }}"
+        value="{{ property }}"
+        placeholder="{{localize 'BRIGANDYNE.Actor.property'}}"
+      />
+    </div>
+    {{/each}}
+  </section>
+  <h3>{{localize 'BRIGANDYNE.Actor.inventory'}}</h3>
+  <section class="brigandyne-inventory">
+    {{!-----------------------------------------}}
+    {{!-- bags --}}
+    {{!-----------------------------------------}}
+
+    <div class="brigandyne-bags">
+      {{#each actor.system.bags as |bag|}}
+      <div class="brigandyne-bag">
+        <input
+          type="text"
+          name="system.bags.{{ @index }}.name"
+          value="{{ bag.name }}"
+          placeholder="{{localize 'BRIGANDYNE.Actor.bag'}}"
+        />
+        <textarea name="system.bag.{{ @index }}.content" rows="5">{{
+          bag.content
+        }}</textarea>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <h3>{{localize 'BRIGANDYNE.Actor.notes'}}</h3>
+  <section class="brigandyne-notes">
+    {{!-----------------------------------------}}
+    {{!-- notes --}}
+    {{!-----------------------------------------}}
+    <div class="brigandyne-note">
+      <textarea name="system.notes" rows="14">{{
+        actor.system.notes
+      }}</textarea>
+      <textarea name="system.notes2" rows="14">{{
+        actor.system.notes2
+      }}</textarea>
+    </div>
+  </section>
+</div>

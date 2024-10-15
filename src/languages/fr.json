@@ -1,13 +1,102 @@
 {
   "BRIGANDYNE": {
+    "Global": {
+      "modificator": "Modificateur",
+      "difficulty": "Difficulté",
+      "advantage": "Avantage"
+    },
+    "Dialog": {
+      "advantage": {
+        "a30": "3 Avantages ou +",
+        "a20": "2 Avantages",
+        "a10": "1 Avantage",
+        "a0": "Sans Avantage",
+        "a-10": "1 Désavantage",
+        "a-20": "2 Désavantages",
+        "a-30": "3 Désavantages ou -"
+      }
+    },
     "Actor": {
+      "name": "Nom",
       "destiny": "Destin",
       "carrier": "Carrière",
       "virtue": "Vertu",
       "vice": "Vice",
       "archetype": "Archétype",
       "armor": "Armure",
-      "name": "Nom"
+      "talents": "Talents",
+      "talent": "Talent",
+      "specialities": "Spécialités",
+      "abilities": "Compétences",
+      "speciality": "Spécialité",
+      "ability": "Ability",
+      "initiative": "Initiative",
+      "health": "Santé",
+      "composure": "Sang-froid",
+      "wound": "Blessures",
+      "state": "État",
+      "job": "Métier",
+      "motivation": "Motivation",
+      "money": "Argent",
+      "kit": "Nécessaire",
+      "bag": "Type de sac",
+      "inventory": "Inventaire",
+      "notes": "Notes",
+      "property": "Propriété",
+      "properties": "Propriétés",
+      "equipment": "Équipement",
+      "smallDescription": "Description",
+      "origin": "Origine",
+      "language": "Langue",
+      "residual": "Séquelle",
+      "crisis": "Crise",
+      "experience": "Expérience",
+      "historical": "Historique",
+      "weapon": "Arme",
+      "identity": "Identité",
+      "spells": "Sorts",
+      "spell": {
+        "name": "Nom",
+        "type": "Type",
+        "difficulty": "Difficulté",
+        "duration": "Durée",
+        "range": "Portée",
+        "resistance": "Résistance",
+        "formula": "Formule",
+        "description": "Description"
+      },
+      "spelltype": {
+        "ritual": "Rituel",
+        "spell": "Sort",
+        "trick": "Tour"
+      },
+      "armorTypes": {
+        "head": "Couvre-chef",
+        "shield": "Bouclier",
+        "body": "Armure"
+      },
+      "tabs": {
+        "abilities": "Stats",
+        "inventory": "Inventaire",
+        "spells": "Sorts",
+        "histo": "Histoire",
+        "notes": "Notes"
+      },
+      "tooltips": {
+        "base": "Base",
+        "modificator": "Modificateur",
+        "total": "Total",
+        "line": "Seuil",
+        "destiny": "Le destin est une mesure du sort et de la fortune du personnage.",
+        "carrier": "Le porteur est la profession ou l'occupation du personnage.",
+        "virtue": "La vertu est la boussole morale du personnage.",
+        "vice": "Le vice est la faille morale du personnage.",
+        "archetype": "L'archétype est le rôle du personnage dans le monde.",
+        "armor": "L'armure est l'équipement de protection du personnage.",
+        "talents": "Les talents sont les capacités uniques du personnage.",
+        "specialities": "Les spécialités sont les domaines d'expertise du personnage.",
+        "abilities": "Les capacités sont les compétences acquises du personnage."
+      }
     }
   }
 }

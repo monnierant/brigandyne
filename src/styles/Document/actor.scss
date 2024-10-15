@@ -5,24 +5,175 @@
   justify-content: space-between;
 }
 
+.hidden {
+  display: none;
+}
+
+.brigandyne-vital-modificator {
+  width: 2.5rem !important;
+}
+
+.brigandyne-separator {
+  width: 0.5rem;
+}
+
+.brigandyne-composure-update,
+.brigandyne-health-update {
+  margin: 0 0.1rem;
+}
+
+.brigandyne-spreader {
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
 .actor-sheet {
+  img {
+    height: 175px !important;
+    width: auto !important;
+  }
+
+  .sheet-header {
+    margin: 0 0 0.25rem 0;
+  }
+
   .sheet-header .brigandyne-header-section {
     @include flex;
     flex-direction: row;
     width: 100%;
   }
 
+  .brigandyne-header-section-wound {
+    gap: 0.5rem;
+  }
+
+  .brigandyne-header-money {
+    @include flex;
+    flex-direction: row;
+    input {
+      width: 3rem;
+    }
+  }
+
+  .brigandyne-header-section-stats {
+    margin-top: 0.4rem;
+  }
+
+  .brigandyne-header-state {
+    width: 100%;
+  }
+
+  .brigandyne-header-wound {
+    input {
+      width: 5rem;
+    }
+  }
+
+  .brigandyne-header-section-gap {
+    gap: 0.5rem;
+  }
+
   .brigandyne-abilities,
   .brigandyne-specialities,
-  .brigandyne-talents {
+  .brigandyne-talents,
+  .brigandyne-inventory,
+  .brigandyne-properties,
+  .brigandyne-life,
+  .brigandyne-identity,
+  .brigandyne-spell {
     @include flex;
     flex-direction: row;
     width: 100%;
-    margin: 0.5em 0;
+    margin: 0 0 0.5em 0;
     padding: 0.5em;
     border: 1px solid #000;
     border-radius: 5px;
     background-color: #f0f0f0;
+  }
+
+  .brigandyne-weapon-section,
+  .brigandyne-armor-section,
+  .brigandyne-experience-section {
+    @include flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .brigandyne-header-section-armor,
+  .brigandyne-header-section-init {
+    input {
+      width: 2rem;
+    }
+  }
+  .brigandyne-header-section-destiny {
+    input {
+      width: 3rem;
+    }
+  }
+
+  .brigandyne-spells-section {
+    @include flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .brigandyne-spell {
+    flex-direction: column;
+    width: min(calc(33% - 0.25rem), 200px);
+    min-width: calc(200px - 1rem);
+    margin-bottom: 0;
+  }
+
+  .brigandyne-spell-infos {
+    @include flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .brigandyne-spell-name,
+  .brigandyne-spell-type {
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
+
+  .brigandyne-spell-name {
+    @include flex;
+  }
+
+  .brigandyne-spell-type {
+    @include flex;
+    gap: 0.5rem;
+    select {
+      width: 100%;
+    }
+  }
+
+  .brigandyne-equipments,
+  .brigandyne-notes {
+    width: 100%;
+    margin: 0;
+    padding: 0 0.5em;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    .small-input {
+      width: 3rem !important;
+    }
+  }
+
+  .brigandyne-notes {
+    padding: 0.5rem;
+    .brigandyne-note {
+      @include flex;
+      gap: 0.25rem;
+    }
   }
 
   .brigandyne-specialities {
@@ -35,8 +186,8 @@
     .brigandyne-specialitiy-name {
       flex-grow: 2;
     }
-    .brigandyne-specialitiy-modifier {
-      max-width: 4em;
+    .brigandyne-specialitiy-modificator {
+      max-width: 2.5rem;
     }
   }
 
@@ -48,6 +199,107 @@
 
     input {
       text-align: center;
+    }
+  }
+
+  .brigandyne-weapon-header,
+  .brigandyne-armor-header {
+    @include flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .brigandyne-carrier {
+    @include flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 2px;
+  }
+
+  .brigandyne-tabs {
+    @include flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .brigandyne-tab {
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem 0.5rem 0 0;
+    &.active {
+      background-color: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  .brigandyne-inventory {
+    align-items: stretch;
+    .brigandyne-bags {
+      @include flex;
+      flex-direction: row;
+      gap: 0.25rem;
+      input {
+        width: 100%;
+      }
+    }
+    .brigandyne-bag {
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  .brigandyne-origin {
+    flex-grow: 3;
+  }
+
+  .brigandyne-identity {
+    flex-direction: column;
+    .brigandyne-identity-info {
+      @include flex;
+      flex-direction: row;
+      gap: 0.5rem;
+    }
+    .brigandyne-identity-info,
+    .brigandyne-small-description,
+    .brigandyne-origin {
+      width: 100%;
+    }
+  }
+
+  .brigandyne-motivation {
+    flex-grow: 5;
+  }
+
+  .brigandyne-life {
+    gap: 0.5rem;
+    .brigandyne-language,
+    .brigandyne-residual,
+    .brigandyne-crisis,
+    .brigandyne-experience {
+      @include flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .brigandyne-residual,
+    .brigandyne-crisis {
+      input {
+        width: 4rem;
+      }
+    }
+    .brigandyne-experience-values {
+      text-wrap: nowrap;
+    }
+    .brigandyne-language {
+      width: 100%;
+    }
+    .brigandyne-experience,
+    .brigandyne-experience-section {
+      margin: 0;
+      input {
+        width: 2rem;
+      }
     }
   }
 }
