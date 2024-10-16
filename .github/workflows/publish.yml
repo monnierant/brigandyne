@@ -25,6 +25,13 @@ jobs:
         id: get_version
         uses: battila7/get-version-action@v2
 
+      - name: Troubleshoot
+        env:
+          MODULE_VERSION: ${{steps.get_version.outputs.version-without-v}}
+          GH_PROJECT: ${{github.repository}}
+          GH_TAG: ${{github.event.release.tag_name}}
+        run: npx tsc --version
+
       - name: Build Typescript
         env:
           MODULE_VERSION: ${{steps.get_version.outputs.version-without-v}}
