@@ -148,10 +148,6 @@
     margin: 0.5rem 0;
   }
 
-  .brigandyne-spell-add-block {
-    @include flex;
-  }
-
   .brigandyne-spell {
     flex-direction: column;
     width: min(calc(33% - 0.25rem), 200px);

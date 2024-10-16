@@ -64,37 +64,43 @@ export default class BrigandyneActor extends Actor {
 
   public async updateXp(xp: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this
+      .system as any as BrigandyneActorSystem;
 
     if (syst.experience.current + xp < 0) {
       return;
     }
 
     await this.update({
-      "system.experience.current": 0, //syst.experience.current + xp,
-      "system.experience.total": Math.max(
-        syst.experience.total + xp,
-        syst.experience.total
-      ),
-      "system.experience.spent": Math.max(
-        syst.experience.spent + xp * -1,
-        syst.experience.spent
-      ),
+      system: {
+        experience: {
+          current: syst.experience.current + xp,
+          total: Math.max(syst.experience.total + xp, syst.experience.total),
+          spent: Math.max(
+            syst.experience.spent + xp * -1,
+            syst.experience.spent
+          ),
+        },
+      },
     });
   }
 
   public async addSpell(spell: Spell) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this
+      .system as any as BrigandyneActorSystem;
 
     await this.update({
-      "system.spells": [...syst.spells, spell],
+      system: {
+        spells: [...syst.spells, spell],
+      },
     });
   }
 
   public async deleteSpell(spellId: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this
+      .system as any as BrigandyneActorSystem;
 
     console.log("spellId", spellId);
     console.log(
@@ -103,15 +109,18 @@ export default class BrigandyneActor extends Actor {
       )
     );
     await this.update({
-      "system.spells": syst.spells.filter((spell: Spell, index: number) =>
-        spell ? index !== spellId : true
-      ),
+      system: {
+        spells: syst.spells.filter((spell: Spell, index: number) =>
+          spell ? index !== spellId : true
+        ),
+      },
     });
   }
 
   public async moveSpell(spellId: number, direction: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this
+      .system as any as BrigandyneActorSystem;
 
     if (spellId + direction < 0 || spellId + direction >= syst.spells.length) {
       return;
@@ -123,13 +132,14 @@ export default class BrigandyneActor extends Actor {
     spells[spellId + direction] = spell;
 
     await this.update({
-      "system.spells": spells,
+      system: { spells: spells },
     });
   }
 
   public async updateHealth(health: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this
+      .system as any as BrigandyneActorSystem;
 
     const healthValue = Math.clamp(
       syst.health.current + health,
@@ -138,13 +148,14 @@ export default class BrigandyneActor extends Actor {
     );
 
     await this.update({
-      "system.health.current": healthValue,
+      system: { health: { current: healthValue } },
     });
   }
 
   public async updateComposure(composure: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this
+      .system as any as BrigandyneActorSystem;
 
     const composureValue = Math.clamp(
       syst.composure.current + composure,
@@ -153,7 +164,7 @@ export default class BrigandyneActor extends Actor {
     );
 
     await this.update({
-      "system.composure.current": composureValue,
+      system: { composure: { current: composureValue } },
     });
   }
 }
