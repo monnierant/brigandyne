@@ -45,10 +45,10 @@
       "notes": "Notes",
       "property": "Property",
       "properties": "Properties",
-      "smallDescription": "Description",
-      "origin": "Origin",
-      "language": "Language",
-      "residual": "Residual",
+      "smallDescription": "Physical description",
+      "origin": "Origins",
+      "language": "Languages",
+      "residual": "Residuals",
       "crisis": "Crisis",
       "experience": "Experience",
       "historical": "Historical",
@@ -79,7 +79,7 @@
         "abilities": "Stats",
         "inventory": "Inventory",
         "spells": "Spells",
-        "histo": "History",
+        "histo": "Profil",
         "notes": "Notes"
       },
       "tooltips": {

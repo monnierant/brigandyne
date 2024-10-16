@@ -35,6 +35,9 @@
 
   .sheet-header {
     margin: 0 0 0.25rem 0;
+    input[type="number"] {
+      text-align: center;
+    }
   }
 
   .sheet-header .brigandyne-header-section {
@@ -107,6 +110,21 @@
       width: 2rem;
     }
   }
+
+  .brigandyne-header-section-armor {
+    input[name="system.protection"] {
+      font-style: italic;
+    }
+  }
+
+  .brigandyne-actor-spell-formula {
+    font-style: italic;
+  }
+
+  .brigandyne-header-section-init-number {
+    font-size: larger;
+  }
+
   .brigandyne-header-section-destiny {
     input {
       width: 3rem;
@@ -123,11 +141,27 @@
     margin: 0.5rem 0;
   }
 
+  .brigandyne-spell-add-block {
+    @include flex;
+  }
+
   .brigandyne-spell {
     flex-direction: column;
     width: min(calc(33% - 0.25rem), 200px);
     min-width: calc(200px - 1rem);
     margin-bottom: 0;
+  }
+
+  .brigandyne-spell-add-block {
+    @include flex;
+    flex-direction: column;
+    width: min(calc(33% - 0.25rem), 200px);
+    min-width: calc(200px - 1rem);
+    margin-bottom: 0;
+    padding: 0.5em;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #f0f0f018;
   }
 
   .brigandyne-spell-infos {
