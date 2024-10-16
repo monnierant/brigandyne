@@ -5,11 +5,12 @@
 {{/if}}
 "
 >
-  {{ log spellTypes}}
+  {{!--
   <h3>
     {{ localize 'BRIGANDYNE.Actor.spells' }} &nbsp;
     <a class="brigandyne-spell-add"><i class="fa-solid fa-circle-plus"></i></a>
   </h3>
+  --}}
   <section class="brigandyne-spells-section">
     {{#each actor.system.spells as |spell|}}
     <div class="brigandyne-spell">
@@ -153,5 +154,9 @@
       </div>
     </div>
     {{/each}}
+    <a class="brigandyne-spell-add"
+      ><div class="brigandyne-spell-add-block">
+        <i class="fa-solid fa-circle-plus"></i></div
+    ></a>
   </section>
 </div>
