@@ -8,7 +8,7 @@
   "scripts": [],
   "compatibility": {
     "minimum": "9",
-    "verified": "10",
+    "verified": "12",
     "maximum": "12"
   },
   "documentTypes": {
