@@ -9,7 +9,7 @@
 
 "@league-of-foundry-developers/foundry-vtt-types@github:League-of-Foundry-Developers/foundry-vtt-types#v12/main":
   version "12.331.0-beta"
-  resolved "git+ssh://git@github.com/League-of-Foundry-Developers/foundry-vtt-types.git#59283faba3821fbdfd11afc415d0ee19150c6db8"
+  resolved "git+https://github.com/League-of-Foundry-Developers/foundry-vtt-types.git#59283faba3821fbdfd11afc415d0ee19150c6db8"
   dependencies:
     "@pixi/graphics-smooth" "^1.1.0"
     "@pixi/particle-emitter" "^5.0.8"
