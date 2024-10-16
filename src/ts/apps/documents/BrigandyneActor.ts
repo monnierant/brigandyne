@@ -71,11 +71,11 @@ export default class BrigandyneActor extends Actor {
     }
 
     await this.update({
+      "system.experience.current": 0, //syst.experience.current + xp,
       "system.experience.total": Math.max(
         syst.experience.total + xp,
         syst.experience.total
       ),
-      "system.experience.current": syst.experience.current + xp,
       "system.experience.spent": Math.max(
         syst.experience.spent + xp * -1,
         syst.experience.spent

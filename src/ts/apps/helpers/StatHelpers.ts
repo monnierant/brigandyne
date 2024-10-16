@@ -69,7 +69,8 @@ export const StatHelpers = {
       Math.ceil(
         StatHelpers.calculateAbility(syst.abilities[abilities.indexOf("PER")]) /
           10
-      )
+      ) +
+      syst.initiative
     );
   },
 
