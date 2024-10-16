@@ -64,8 +64,7 @@ export default class BrigandyneActor extends Actor {
 
   public async updateXp(xp: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this
-      .system as any as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
 
     if (syst.experience.current + xp < 0) {
       return;
@@ -86,8 +85,7 @@ export default class BrigandyneActor extends Actor {
 
   public async addSpell(spell: Spell) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this
-      .system as any as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
 
     await this.update({
       "system.spells": [...syst.spells, spell],
@@ -96,8 +94,7 @@ export default class BrigandyneActor extends Actor {
 
   public async deleteSpell(spellId: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this
-      .system as any as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
 
     console.log("spellId", spellId);
     console.log(
@@ -114,8 +111,7 @@ export default class BrigandyneActor extends Actor {
 
   public async moveSpell(spellId: number, direction: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this
-      .system as any as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
 
     if (spellId + direction < 0 || spellId + direction >= syst.spells.length) {
       return;
@@ -133,8 +129,7 @@ export default class BrigandyneActor extends Actor {
 
   public async updateHealth(health: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this
-      .system as any as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
 
     const healthValue = Math.clamp(
       syst.health.current + health,
@@ -149,8 +144,7 @@ export default class BrigandyneActor extends Actor {
 
   public async updateComposure(composure: number) {
     // const syst = this.system as any as BrigandyneActorSystem;
-    const syst: BrigandyneActorSystem = this
-      .system as any as BrigandyneActorSystem;
+    const syst: BrigandyneActorSystem = this.system as any; // as BrigandyneActorSystem;
 
     const composureValue = Math.clamp(
       syst.composure.current + composure,
