@@ -35,6 +35,9 @@
 
   .sheet-header {
     margin: 0 0 0.25rem 0;
+    input[type="number"] {
+      text-align: center;
+    }
   }
 
   .sheet-header .brigandyne-header-section {
@@ -107,6 +110,21 @@
       width: 2rem;
     }
   }
+
+  .brigandyne-header-section-armor {
+    input[name="system.protection"] {
+      font-style: italic;
+    }
+  }
+
+  .brigandyne-actor-spell-formula {
+    font-style: italic;
+  }
+
+  .brigandyne-header-section-init-number {
+    font-size: larger;
+  }
+
   .brigandyne-header-section-destiny {
     input {
       width: 3rem;

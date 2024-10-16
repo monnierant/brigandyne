@@ -45,11 +45,11 @@
       "property": "Propriété",
       "properties": "Propriétés",
       "equipment": "Équipement",
-      "smallDescription": "Description",
-      "origin": "Origine",
-      "language": "Langue",
-      "residual": "Séquelle",
-      "crisis": "Crise",
+      "smallDescription": "Description physique",
+      "origin": "Origines",
+      "language": "Langues",
+      "residual": "Séquelles",
+      "crisis": "Crises",
       "experience": "Expérience",
       "historical": "Historique",
       "weapon": "Arme",
@@ -76,10 +76,10 @@
         "body": "Armure"
       },
       "tabs": {
-        "abilities": "Stats",
+        "abilities": "Compétences",
         "inventory": "Inventaire",
         "spells": "Sorts",
-        "histo": "Histoire",
+        "histo": "Profil",
         "notes": "Notes"
       },
       "tooltips": {
