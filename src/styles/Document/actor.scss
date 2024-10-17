@@ -79,6 +79,7 @@
   .brigandyne-abilities,
   .brigandyne-specialities,
   .brigandyne-talents,
+  .brigandyne-specificities,
   .brigandyne-inventory,
   .brigandyne-properties,
   .brigandyne-life,
@@ -229,7 +230,8 @@
   }
 
   .brigandyne-ability,
-  .brigandyne-talent {
+  .brigandyne-talent,
+  .brigandyne-specificity {
     @include flex;
     flex-direction: column;
     gap: 0.1em;

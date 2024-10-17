@@ -33,7 +33,7 @@ export interface BrigandyneSecondRoleActorSystem {
   bags: Bag[];
   notes: string;
   notes2: string;
-  talents: Talent[];
+  specificities: Talent[];
 }
 
 export const brigandyneSecondRoleActorSchema = {
@@ -84,7 +84,7 @@ export const brigandyneSecondRoleActorSchema = {
   notes2: new fields.StringField({ initial: "" }),
 
   // Second Role + First Role
-  talents: new fields.ArrayField(new fields.SchemaField(talentSchema()), {
+  specificities: new fields.ArrayField(new fields.SchemaField(talentSchema()), {
     initial: Array(defaultLenght.talent).fill({
       name: "",
       description: "",

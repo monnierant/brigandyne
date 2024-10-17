@@ -53,6 +53,30 @@ export const StatHelpers = {
     };
   },
 
+  calculateActorNpcHealth: function (actor: BrigandyneActor) {
+    const syst = actor.system as any as BrigandyneActorSystem;
+
+    const base = 0;
+
+    return {
+      current: syst.health.current,
+      max: base + syst.health.modificator,
+      percent: Math.round(
+        (syst.health.current / (base + syst.health.modificator)) * 100
+      ),
+      line: StatHelpers.calculateLine(base + syst.health.modificator),
+      lineValue: Math.round(
+        (Math.max(
+          syst.health.current -
+            StatHelpers.calculateLine(base + syst.health.modificator),
+          0
+        ) /
+          (base + syst.health.modificator)) *
+          100
+      ),
+    };
+  },
+
   calculateActorInit: function (actor: BrigandyneActor) {
     const syst = actor.system as any as BrigandyneActorSystem;
 

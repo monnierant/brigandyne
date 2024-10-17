@@ -37,6 +37,7 @@ export interface BrigandyneFirstRoleActorSystem {
   bags: Bag[];
   notes: string;
   notes2: string;
+  specificities: Talent[];
   talents: Talent[];
   specialities: Speciality[];
   spells: Spell[];
@@ -90,14 +91,19 @@ export const brigandyneFirstRoleActorSchema = {
   notes2: new fields.StringField({ initial: "" }),
 
   // Second Role + First Role
+  specificities: new fields.ArrayField(new fields.SchemaField(talentSchema()), {
+    initial: Array(defaultLenght.talent).fill({
+      name: "",
+      description: "",
+    }),
+  }),
+  // First Role
   talents: new fields.ArrayField(new fields.SchemaField(talentSchema()), {
     initial: Array(defaultLenght.talent).fill({
       name: "",
       description: "",
     }),
   }),
-
-  // First Role
   specialities: new fields.ArrayField(
     new fields.SchemaField(specialitySchema()),
     {

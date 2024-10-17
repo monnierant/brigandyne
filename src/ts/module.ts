@@ -39,12 +39,16 @@ declare global {
 async function preloadTemplates(): Promise<any> {
   const templatePaths = [
     `systems/${moduleId}/templates/partials/actor/header.hbs`,
-    // `systems/${moduleId}/templates/partials/actor/headerNpc.hbs`,
+    `systems/${moduleId}/templates/partials/actor/headerNpc.hbs`,
     `systems/${moduleId}/templates/partials/actor/hpmpbar.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/abilities.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/inventory.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/spells.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/histo.hbs`,
+    `systems/${moduleId}/templates/partials/actor/npc/extra/abilities.hbs`,
+    `systems/${moduleId}/templates/partials/actor/npc/secondrole/abilities.hbs`,
+    `systems/${moduleId}/templates/partials/actor/npc/firstrole/abilities.hbs`,
+    `systems/${moduleId}/templates/partials/actor/npc/firstrole/spells.hbs`,
   ];
 
   return loadTemplates(templatePaths);

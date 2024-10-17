@@ -51,18 +51,20 @@
           <a class="brigandyne-health-update" data-mult="-1"
             ><i class="fa-solid fa-square-caret-down"></i
           ></a>
+          <input name="health" type="number" value="1" />
+          <a class="brigandyne-health-update" data-mult="1"
+            ><i class="fa-solid fa-square-caret-up"></i
+          ></a>
           <input
             name="system.health.current"
             type="hidden"
             value="{{ actor.system.health.current }}"
           />
-          <input name="health" type="number" value="1" />
-          <a class="brigandyne-health-update" data-mult="1"
-            ><i class="fa-solid fa-square-caret-up"></i
-          ></a>
           <div class="brigandyne-separator"></div>
           <input
+            {{!--
             class="brigandyne-vital-modificator"
+            --}}
             name="system.health.modificator"
             type="number"
             value="{{ actor.system.health.modificator }}"
@@ -89,12 +91,12 @@
       <div class="brigandyne-header-section-destiny">
         <label
           class="brigandyne-spreader"
-          >{{localize 'BRIGANDYNE.Actor.destiny'}}</label
+          >{{localize 'BRIGANDYNE.Actor.action'}}</label
         >
         <input
-          name="system.destiny"
+          name="system.action"
           type="number"
-          value="{{ actor.system.destiny }}"
+          value="{{ actor.system.action }}"
         />
       </div>
     </div>
