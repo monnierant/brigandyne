@@ -1,139 +1,31 @@
 // The import = is important so that `CaracModBaseCarr` works.
 import { abilities, armorTypes, defaultLenght } from "../../constants";
 import fields = foundry.data.fields;
-
-export interface CaracModBaseCarr {
-  name: string;
-  base: number;
-  modificator: number;
-  carrier: number;
-}
-
-const caracModeBaseCarrSchema = () => ({
-  name: new fields.StringField({ required: true }),
-  base: new fields.NumberField({ initial: 0 }),
-  modificator: new fields.NumberField({ initial: 0 }),
-  carrier: new fields.NumberField({ initial: 0 }),
-  carrierMax: new fields.NumberField({ initial: 0 }),
-});
-
-export interface Speciality {
-  name: string;
-  modificator: number;
-}
-
-const specialitySchema = () => ({
-  name: new fields.StringField({ initial: "" }),
-  modificator: new fields.NumberField({ initial: 0 }),
-});
-
-export interface Talent {
-  name: string;
-  description: string;
-}
-
-const talentSchema = () => ({
-  name: new fields.StringField({ initial: "" }),
-  description: new fields.StringField({ initial: "" }),
-});
-
-export interface Money {
-  gold: number;
-  silver: number;
-  copper: number;
-}
-
-const moneySchema = () => ({
-  gold: new fields.NumberField({ initial: 0 }),
-  silver: new fields.NumberField({ initial: 0 }),
-  copper: new fields.NumberField({ initial: 0 }),
-});
-
-export interface VitalStat {
-  current: number;
-  modificator: number;
-}
-
-const vitalStatSchema = () => ({
-  current: new fields.NumberField({ initial: 0 }),
-  base: new fields.NumberField({ initial: 0 }),
-  modificator: new fields.NumberField({ initial: 0 }),
-  line: new fields.NumberField({ initial: 0 }),
-});
-
-export interface Bag {
-  type: string;
-  content: string;
-}
-
-const bagSchema = () => ({
-  type: new fields.StringField({ initial: "" }),
-  content: new fields.StringField({ initial: "" }),
-});
-
-export interface Weapon {
-  name: string;
-  damage: number;
-  properties: string;
-}
-
-const weaponSchema = () => ({
-  name: new fields.StringField({ initial: "" }),
-  damage: new fields.NumberField({ initial: 0 }),
-  properties: new fields.StringField({ initial: "" }),
-});
-
-export interface Experience {
-  current: number;
-  total: number;
-  spent: number;
-}
-
-const experienceSchema = () => ({
-  current: new fields.NumberField({ initial: 0 }),
-  total: new fields.NumberField({ initial: 0 }),
-  spent: new fields.NumberField({ initial: 0 }),
-});
-
-export interface Armor {
-  name: string;
-  type: string;
-  protection: number;
-  coverage: number;
-  properties: string;
-}
-
-const armorSchema = () => ({
-  name: new fields.StringField({ initial: "" }),
-  type: new fields.StringField({ initial: "" }),
-  protection: new fields.NumberField({ initial: 0 }),
-  coverage: new fields.NumberField({ initial: 0 }),
-  properties: new fields.StringField({ initial: "" }),
-});
-
-export interface Spell {
-  name: string;
-  difficulty: number;
-  type: string;
-  duration: number;
-  range: number;
-  resistance: string;
-  formula: string;
-  description: string;
-}
-
-const spellSchema = () => ({
-  name: new fields.StringField({ initial: "" }),
-  difficulty: new fields.NumberField({ initial: 0 }),
-  type: new fields.StringField({ initial: "" }),
-  duration: new fields.NumberField({ initial: 0 }),
-  range: new fields.NumberField({ initial: 0 }),
-  resistance: new fields.StringField({ initial: "-" }),
-  formula: new fields.StringField({ initial: "" }),
-  description: new fields.StringField({ initial: "" }),
-});
+import {
+  Armor,
+  armorSchema,
+  Bag,
+  bagSchema,
+  CaracModBaseCarr,
+  caracModeBaseCarrSchema,
+  Experience,
+  experienceSchema,
+  Money,
+  moneySchema,
+  Speciality,
+  specialitySchema,
+  Spell,
+  spellSchema,
+  Talent,
+  talentSchema,
+  VitalStat,
+  vitalStatSchema,
+  Weapon,
+  weaponSchema,
+} from "./commonSchema";
 
 export interface BrigandyneActorSystem {
+  type: string;
   carrier: string;
   virtue: string;
   vice: string;
@@ -168,6 +60,7 @@ export interface BrigandyneActorSystem {
 }
 
 export const brigandyneActorSchema = {
+  type: new fields.StringField({ initial: "character" }),
   carrier: new fields.StringField({ initial: "" }),
   virtue: new fields.StringField({ initial: "" }),
   vice: new fields.StringField({ initial: "" }),

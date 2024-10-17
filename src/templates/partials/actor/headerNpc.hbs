@@ -1,0 +1,152 @@
+{{!-- ----------------------------------------- --}}
+{{!-- Header --}}
+{{!-- ----------------------------------------- --}}
+<header class="sheet-header">
+  <img
+    src="{{ actor.img }}"
+    data-edit="img"
+    title="{{ actor.name }}"
+    height="100"
+    width="177"
+  />
+  <div class="brigandyne-header-content">
+    {{!-- Description --}}
+    <div class="brigandyne-header-section">
+      <div>
+        <label>{{localize 'BRIGANDYNE.Actor.name'}}</label>
+        <input name="name" type="text" value="{{ actor.name }}" />
+      </div>
+    </div>
+
+    {{!-- Stats --}}
+    <div
+      class="brigandyne-header-section-stats brigandyne-header-section brigandyne-header-section-gap"
+    >
+      <div>
+        <label
+          class="brigandyne-spreader"
+          >{{localize 'BRIGANDYNE.Actor.armor'}}</label
+        >
+        <div class="brigandyne-header-section brigandyne-header-section-armor">
+          <input
+            name="system.cover"
+            type="number"
+            value="{{ actor.system.cover }}"
+          />
+          /
+          <input
+            name="system.protection"
+            type="number"
+            value="{{ actor.system.protection }}"
+          />
+        </div>
+      </div>
+      <div>
+        <label
+          >{{localize 'BRIGANDYNE.Actor.health'}} ({{ health.max }} |
+          {{ health.line }})</label
+        >
+        {{> 'systems/brigandyne/templates/partials/actor/hpmpbar.hbs' color="#b71c1c" value=health}}
+        <div class="brigandyne-header-section">
+          <a class="brigandyne-health-update" data-mult="-1"
+            ><i class="fa-solid fa-square-caret-down"></i
+          ></a>
+          <input
+            name="system.health.current"
+            type="hidden"
+            value="{{ actor.system.health.current }}"
+          />
+          <input name="health" type="number" value="1" />
+          <a class="brigandyne-health-update" data-mult="1"
+            ><i class="fa-solid fa-square-caret-up"></i
+          ></a>
+          <div class="brigandyne-separator"></div>
+          <input
+            class="brigandyne-vital-modificator"
+            name="system.health.modificator"
+            type="number"
+            value="{{ actor.system.health.modificator }}"
+          />
+        </div>
+      </div>
+      <div>
+        <label
+          class="brigandyne-spreader"
+          >{{localize 'BRIGANDYNE.Actor.initiative'}}</label
+        >
+        <div class="brigandyne-header-section brigandyne-header-section-init">
+          <input
+            name="system.initiative"
+            type="number"
+            value="{{ actor.system.initiative }}"
+          />
+          /
+          <div class="brigandyne-header-section-init-number">
+            {{ initiative }}
+          </div>
+        </div>
+      </div>
+      <div class="brigandyne-header-section-destiny">
+        <label
+          class="brigandyne-spreader"
+          >{{localize 'BRIGANDYNE.Actor.destiny'}}</label
+        >
+        <input
+          name="system.destiny"
+          type="number"
+          value="{{ actor.system.destiny }}"
+        />
+      </div>
+    </div>
+
+    {{!-- Status --}}
+    <div class="brigandyne-header-section brigandyne-header-section-wound">
+      <div class="brigandyne-header-state">
+        <label>{{localize 'BRIGANDYNE.Actor.state'}}</label>
+        <input
+          name="system.state"
+          type="text"
+          value="{{ actor.system.state }}"
+        />
+      </div>
+      <div>
+        <label>{{localize 'BRIGANDYNE.Actor.money'}}</label>
+        <div class="brigandyne-header-money">
+          <input
+            name="system.money.gold"
+            type="number"
+            value="{{ actor.system.money.gold }}"
+          />
+          <input
+            name="system.money.silver"
+            type="number"
+            value="{{ actor.system.money.silver }}"
+          />
+          <input
+            name="system.money.copper"
+            type="number"
+            value="{{ actor.system.money.copper }}"
+          />
+        </div>
+      </div>
+    </div>
+
+    {{!-- Tabs --}}
+    <div class="brigandyne-header-section brigandyne-header-section-tabs">
+      <div class="brigandyne-tabs">
+        {{#each tabs as |onetab|}}
+        <a
+          class="brigandyne-tab
+        {{#if (eq onetab ../tab)}}
+          active
+        {{/if}}
+        "
+          data-tab="{{ onetab }}"
+        >
+          {{ localize (concat 'BRIGANDYNE.Actor.tabs.' onetab) }}
+        </a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</header>

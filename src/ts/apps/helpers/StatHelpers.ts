@@ -1,9 +1,8 @@
 import { abilities } from "../../constants";
 import BrigandyneActor from "../documents/BrigandyneActor";
-import {
-  BrigandyneActorSystem,
-  CaracModBaseCarr,
-} from "../schemas/BrigandyneActorSchema";
+import { BrigandyneActorSystem } from "../schemas/BrigandyneActorSchema";
+
+import { CaracModBaseCarr } from "../schemas/commonSchema";
 
 export const StatHelpers = {
   calculateVitality: function (forc: number, end: number, vol: number) {

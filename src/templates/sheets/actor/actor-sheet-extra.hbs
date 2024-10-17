@@ -1,5 +1,7 @@
+{{log actor}}
+
 <form class="actor-sheet {{ cssClass }}" autocomplete="off">
-  {{> "systems/brigandyne/templates/partials/actor/header.hbs" actor=actor}}
+  {{> "systems/brigandyne/templates/partials/actor/headerNpc.hbs" actor=actor}}
 
   {{#each tabs as |onetab|}}
   {{> (concat (concat "systems/brigandyne/templates/partials/actor/pannels/" onetab) ".hbs") spellResistances=../spellResistances spellDifficulties=../spellDifficulties spellTypes=../spellTypes actor=../actor display=(eq onetab ../tab)}}

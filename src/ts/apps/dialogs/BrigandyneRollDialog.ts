@@ -56,7 +56,6 @@ export default class BrigandyneActorRollDialog extends Dialog {
   // Data to be passed to the template when rendering
   override getData() {
     let data: any = super.getData();
-    data.isGM = (game as Game).user?.isGM;
     data.actor = this.actor;
     data.ability = this.actor.getAbility(this.abilityId);
     return data;

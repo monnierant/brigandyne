@@ -20,7 +20,7 @@ export default class BrigandyneItemSheet extends ActorSheet {
 
   // Define the template to use for this sheet
   override get template() {
-    return `systems/${moduleId}/templates/sheets/actor/actor-sheet-${this.actor.system.type}.hbs`;
+    return `systems/${moduleId}/templates/sheets/actor/actor-sheet-character.hbs`;
   }
 
   // Data to be passed to the template when rendering
@@ -58,15 +58,13 @@ export default class BrigandyneItemSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    console.log("this.actor", this.actor);
-    console.log("this.actor.system", this.actor.system);
-    console.log("this.actor.system.type", this.actor.system.type);
-
-    if (this.actor.system.type === "character") {
-      this.activateListenersPC(html);
-    }
-    if (this.actor.system.type === "firstrole") {
-      this.activateListenersFirstRole(html);
+    switch (this.actor.system.type) {
+      case "character":
+        this.activateListenersPC(html);
+        break;
+      case "firstrole":
+        this.activateListenersFirstRole(html);
+        break;
     }
   }
 
@@ -88,21 +86,19 @@ export default class BrigandyneItemSheet extends ActorSheet {
   }
 
   private activateListenersFirstRole(html: JQuery) {
-    html.find(".health");
-    // html.find(".brigandyne-xp").on("click", this._onUpdateXp.bind(this));
-    // html.find(".brigandyne-spell-add").on("click", this._onAddSpell.bind(this));
-    // html
-    //   .find(".brigandyne-spell-delete")
-    //   .on("click", this._onDeleteSpell.bind(this));
-    // html
-    //   .find(".brigandyne-spell-move")
-    //   .on("click", this._onMoveSpell.bind(this));
-    // html
-    //   .find(".brigandyne-health-update")
-    //   .on("click", this._onUpdateHealth.bind(this));
-    // html
-    //   .find(".brigandyne-composure-update")
-    //   .on("click", this._onUpdateComposure.bind(this));
+    html.find(".brigandyne-spell-add").on("click", this._onAddSpell.bind(this));
+    html
+      .find(".brigandyne-spell-delete")
+      .on("click", this._onDeleteSpell.bind(this));
+    html
+      .find(".brigandyne-spell-move")
+      .on("click", this._onMoveSpell.bind(this));
+    html
+      .find(".brigandyne-health-update")
+      .on("click", this._onUpdateHealth.bind(this));
+    html
+      .find(".brigandyne-composure-update")
+      .on("click", this._onUpdateComposure.bind(this));
   }
 
   // Event Handlers

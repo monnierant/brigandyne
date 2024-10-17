@@ -2,8 +2,6 @@
 // code and not include them in the build output.
 import "../styles/style.scss";
 
-// import DogBrowser from "./apps/dogBrowser";
-import BrigandyneItemSheet from "./apps/sheets/BrigandyneItemSheet";
 import BrigandyneActorSheet from "./apps/sheets/BrigandyneActorSheet";
 
 import { moduleId } from "./constants";
@@ -21,6 +19,9 @@ import { calculateLine } from "./handlebarsHelpers/Vitals/calculateLine";
 import { calculateComposure } from "./handlebarsHelpers/Vitals/calculateComposure";
 import { calculateVitality } from "./handlebarsHelpers/Vitals/calculateVitality";
 import { calculateInstability } from "./handlebarsHelpers/Vitals/calculateInstability";
+import BrigandyneFirstRoleActorDataModel from "./apps/datamodels/BrigandyneFirstRoleActorDataModel";
+import BrigandyneSecondRoleActorDataModel from "./apps/datamodels/BrigandyneSecondRoleActorDataModel";
+import BrigandyneExtraActorDataModel from "./apps/datamodels/BrigandyneExtraActorDataModel";
 
 declare global {
   interface DocumentClassConfig {
@@ -38,6 +39,7 @@ declare global {
 async function preloadTemplates(): Promise<any> {
   const templatePaths = [
     `systems/${moduleId}/templates/partials/actor/header.hbs`,
+    // `systems/${moduleId}/templates/partials/actor/headerNpc.hbs`,
     `systems/${moduleId}/templates/partials/actor/hpmpbar.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/abilities.hbs`,
     `systems/${moduleId}/templates/partials/actor/pannels/inventory.hbs`,
@@ -68,11 +70,10 @@ Hooks.once("init", () => {
   });
 
   CONFIG.Actor.dataModels.character = BrigandyneActorDataModel;
+  CONFIG.Actor.dataModels.firstrole = BrigandyneFirstRoleActorDataModel;
+  CONFIG.Actor.dataModels.secondrole = BrigandyneSecondRoleActorDataModel;
+  CONFIG.Actor.dataModels.extra = BrigandyneExtraActorDataModel;
   CONFIG.Actor.documentClass = BrigandyneActor;
-  // CONFIG.ChatMessage.dataModels.rollMessage = brigandyneResultRollMessageData;
-
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet(moduleId, BrigandyneItemSheet, { makeDefault: true });
 
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet(moduleId, BrigandyneActorSheet, { makeDefault: true });
