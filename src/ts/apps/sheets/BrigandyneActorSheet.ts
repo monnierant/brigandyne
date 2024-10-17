@@ -7,40 +7,47 @@ import {
 } from "../../constants";
 import BrigandyneActor from "../documents/BrigandyneActor";
 import { StatHelpers } from "../helpers/StatHelpers";
-import { brigandyneActorSchema, Spell } from "../schemas/BrigandyneActorSchema";
+import { Spell } from "../schemas/commonSchema";
 
 export default class BrigandyneItemSheet extends ActorSheet {
   constructor(object: any, options = {}) {
     super(object, { ...options, width: 610, height: 750 });
+    console.log("this.actor.type", this.actor.type);
   }
 
-  private readonly tabs: string[] = tabs;
+  // private readonly tabs: string[] = tabs;
   private tab: string = "abilities";
 
   // Define the template to use for this sheet
   override get template() {
-    return `systems/${moduleId}/templates/sheets/actor/actor-sheet.hbs`;
+    return `systems/${moduleId}/templates/sheets/actor/actor-sheet-${this.actor.system.type}.hbs`;
   }
 
   // Data to be passed to the template when rendering
   override getData() {
     const data: any = super.getData();
-    // data.actor = this.actor as BrigandyneActor;
-    data.tabs = this.tabs;
+    data.tabs = tabs[this.actor.system.type as keyof typeof tabs];
     data.tab = this.tab;
     data.spellTypes = spellTypes;
     data.spellDifficulties = spellDifficulties;
     data.spellResistances = ["-", ...abilities];
     data.abilities = abilities;
-    data.health = StatHelpers.calculateActorHealth(
-      this.actor as BrigandyneActor
-    );
-    data.composure = StatHelpers.calculateActorComposure(
-      this.actor as BrigandyneActor
-    );
     data.initiative = StatHelpers.calculateActorInit(
       this.actor as BrigandyneActor
     );
+    if (["extra", "secondrole", "firstrole"].includes(this.actor.system.type)) {
+      data.health = StatHelpers.calculateActorNpcHealth(
+        this.actor as BrigandyneActor
+      );
+    }
+    if (this.actor.system.type === "character") {
+      data.health = StatHelpers.calculateActorHealth(
+        this.actor as BrigandyneActor
+      );
+      data.composure = StatHelpers.calculateActorComposure(
+        this.actor as BrigandyneActor
+      );
+    }
     return data;
   }
 
@@ -57,15 +64,28 @@ export default class BrigandyneItemSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.options.editable) return;
 
-    if (typeof this.actor.system == typeof brigandyneActorSchema) {
+    console.log("this.actor", this.actor);
+    console.log("this.actor.system", this.actor.system);
+    console.log("this.actor.system.type", this.actor.system.type);
+
+    if (this.actor.system.type === "character") {
       this.activateListenersPC(html);
+    }
+    if (this.actor.system.type === "extra") {
+      this.activateListenersFirstSecondExtraRole(html);
+    }
+    if (this.actor.system.type === "secondrole") {
+      this.activateListenersFirstSecondRole(html);
+      this.activateListenersFirstSecondExtraRole(html);
+    }
+    if (this.actor.system.type === "firstrole") {
+      this.activateListenersFirstRole(html);
+      this.activateListenersFirstSecondRole(html);
+      this.activateListenersFirstSecondExtraRole(html);
     }
   }
 
   private activateListenersPC(html: JQuery) {
-    html.find(".cowboy-admin-action-health");
-    // .on("click", this._onDamage.bind(this));
-
     html.find(".brigandyne-xp").on("click", this._onUpdateXp.bind(this));
     html.find(".brigandyne-spell-add").on("click", this._onAddSpell.bind(this));
     html
@@ -80,6 +100,25 @@ export default class BrigandyneItemSheet extends ActorSheet {
     html
       .find(".brigandyne-composure-update")
       .on("click", this._onUpdateComposure.bind(this));
+  }
+
+  private activateListenersFirstSecondExtraRole(html: JQuery) {
+    html
+      .find(".brigandyne-health-update")
+      .on("click", this._onUpdateHealth.bind(this));
+  }
+  private activateListenersFirstSecondRole(html: JQuery) {
+    html.find(".health");
+  }
+  private activateListenersFirstRole(html: JQuery) {
+    html.find(".health");
+    html.find(".brigandyne-spell-add").on("click", this._onAddSpell.bind(this));
+    html
+      .find(".brigandyne-spell-delete")
+      .on("click", this._onDeleteSpell.bind(this));
+    html
+      .find(".brigandyne-spell-move")
+      .on("click", this._onMoveSpell.bind(this));
   }
 
   // Event Handlers

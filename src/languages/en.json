@@ -19,6 +19,9 @@
     "Actor": {
       "name": "Name",
       "destiny": "Destiny",
+      "action": "Action",
+      "specificities": "Specificities",
+      "specificity": "Specificity",
       "carrier": "Carrier",
       "virtue": "Virtue",
       "vice": "Vice",

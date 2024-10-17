@@ -10,7 +10,13 @@ export const defaultLenght = {
   bags: 3,
 };
 
-export const tabs = ["abilities", "inventory", "histo", "spells"];
+export const tabs = {
+  character: ["abilities", "inventory", "histo", "spells"],
+  extra: ["abilities"],
+  secondrole: ["abilities"],
+  firstrole: ["abilities", "spells"],
+};
+// export const tabs = ["abilities", "inventory", "histo", "spells"];
 
 export const spellTypes = ["spell", "ritual", "trick"];
 

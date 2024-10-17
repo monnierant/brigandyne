@@ -1,0 +1,196 @@
+<div
+  class="
+{{#if (not display)}}
+  hidden
+{{/if}}"
+>
+  {{!-- ----------------------------------------- --}}
+  {{!-- Abilities --}}
+  {{!-- ----------------------------------------- --}}
+  {{!--
+  <h3>{{localize 'BRIGANDYNE.Actor.abilities'}}</h3>
+  --}}
+  <section class="brigandyne-abilities">
+    {{#each actor.system.abilities as |ability|}}
+    <div class="brigandyne-ability">
+      <a class="brigandyne-ability-roll" data-ability="{{ @index }}">
+        <label>{{ ability.name }}</label>
+      </a>
+      <input
+        type="hidden"
+        name="system.abilities.{{ @index }}.name"
+        value="{{ ability.name }}"
+      />
+      <input
+        name="system.abilities.{{ @index }}.base"
+        type="number"
+        value="{{ ability.base }}"
+      />
+      <input
+        name="system.abilities.{{ @index }}.modificator"
+        type="number"
+        value="{{ ability.modificator }}"
+      />
+      <div class="brigandyne-carrier">
+        <input
+          name="system.abilities.{{ @index }}.carrier"
+          type="number"
+          value="{{ ability.carrier }}"
+        />
+        <input
+          name="system.abilities.{{ @index }}.carrierMax"
+          type="number"
+          value="{{ ability.carrierMax }}"
+        />
+      </div>
+      <div class="brigandyne-ability-total">
+        {{ calculateAbility ability.base ability.modificator ability.carrier }}
+      </div>
+    </div>
+    {{/each}}
+  </section>
+
+  {{!-- ----------------------------------------- --}}
+  {{!-- Specialities --}}
+  {{!-- ----------------------------------------- --}}
+  <h3>
+    {{localize 'BRIGANDYNE.Actor.specificities'}} &
+    {{localize 'BRIGANDYNE.Actor.specialities'}} &
+    {{localize 'BRIGANDYNE.Actor.talents'}}
+  </h3>
+  <section class="brigandyne-specificities">
+    {{#each actor.system.specificities as |specificity|}}
+    <div class="brigandyne-specificity">
+      <input
+        type="text"
+        name="system.specificities.{{ @index }}.name"
+        value="{{ specificity.name }}"
+        placeholder="{{localize 'BRIGANDYNE.Actor.specificity'}}"
+      />
+      <textarea name="system.specificities.{{ @index }}.description" rows="3">{{
+        talent.description
+      }}</textarea>
+    </div>
+    {{/each}}
+  </section>
+  <section class="brigandyne-specialities">
+    {{#each actor.system.specialities as |speciality|}}
+    <div class="brigandyne-specialitiy">
+      <input
+        class="brigandyne-specialitiy-name"
+        type="text"
+        name="system.specialities.{{ @index }}.name"
+        value="{{ speciality.name }}"
+        placeholder="{{localize 'BRIGANDYNE.Actor.speciality'}}"
+      />
+      <input
+        class="brigandyne-specialitiy-modificator"
+        name="system.specialities.{{ @index }}.modificator"
+        type="number"
+        value="{{ speciality.modificator }}"
+      />
+    </div>
+    {{/each}}
+  </section>
+  <section class="brigandyne-talents">
+    {{#each actor.system.talents as |talent|}}
+    <div class="brigandyne-talent">
+      <input
+        type="text"
+        name="system.talents.{{ @index }}.name"
+        value="{{ talent.name }}"
+        placeholder="{{localize 'BRIGANDYNE.Actor.talent'}}"
+      />
+      <textarea name="system.talents.{{ @index }}.description" rows="3">{{
+        talent.description
+      }}</textarea>
+    </div>
+    {{/each}}
+  </section>
+
+  {{!-- ----------------------------------------- --}}
+  {{!-- Equipment --}}
+  {{!-- ----------------------------------------- --}}
+  <h3>
+    {{localize 'BRIGANDYNE.Actor.equipment'}}
+  </h3>
+
+  <section class="brigandyne-equipments">
+    <div class="brigandyne-weapon-section">
+      {{#each actor.system.weapons as |weapon|}}
+      <div class="brigandyne-weapon">
+        <div class="brigandyne-weapon-header">
+          <input
+            type="text"
+            name="system.weapons.{{ @index }}.name"
+            value="{{ weapon.name }}"
+            placeholder="{{ localize 'BRIGANDYNE.Actor.weapon' }}"
+          />
+          <input
+            type="number"
+            class="small-input"
+            name="system.weapons.{{ @index }}.damage"
+            value="{{ weapon.damage }}"
+          />
+        </div>
+        <input
+          type="text"
+          name="system.weapons.{{ @index }}.properties"
+          value="{{ weapon.properties }}"
+        />
+      </div>
+      {{/each}}
+    </div>
+    <div class="brigandyne-armor-section">
+      {{#each actor.system.armors as |armor|}}
+      <div class="brigandyne-armor">
+        <div class="brigandyne-armor-header">
+          <input
+            type="text"
+            name="system.armors.{{ @index }}.name"
+            value="{{ armor.name }}"
+            placeholder="{{localize (concat 'BRIGANDYNE.Actor.armorTypes.' armor.type)}}"
+          />
+          <input
+            type="hidden"
+            name="system.armors.{{ @index }}.type"
+            value="{{ armor.type }}"
+          />
+          <input
+            type="number"
+            class="small-input"
+            name="system.armors.{{ @index }}.protection"
+            value="{{ armor.protection }}"
+          />
+          <input
+            type="number"
+            class="small-input"
+            name="system.armors.{{ @index }}.coverage"
+            value="{{ armor.coverage }}"
+          />
+        </div>
+        <input
+          type="text"
+          name="system.armors.{{ @index }}.properties"
+          value="{{ armor.properties }}"
+        />
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <h3>{{localize 'BRIGANDYNE.Actor.notes'}}</h3>
+  <section class="brigandyne-notes">
+    {{!-----------------------------------------}}
+    {{!-- notes --}}
+    {{!-----------------------------------------}}
+    <div class="brigandyne-note">
+      <textarea name="system.notes" rows="18">{{
+        actor.system.notes
+      }}</textarea>
+      <textarea name="system.notes2" rows="18">{{
+        actor.system.notes2
+      }}</textarea>
+    </div>
+  </section>
+</div>

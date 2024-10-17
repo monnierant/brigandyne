@@ -1,9 +1,8 @@
 import { abilities } from "../../constants";
 import BrigandyneActor from "../documents/BrigandyneActor";
-import {
-  BrigandyneActorSystem,
-  CaracModBaseCarr,
-} from "../schemas/BrigandyneActorSchema";
+import { BrigandyneActorSystem } from "../schemas/BrigandyneActorSchema";
+
+import { CaracModBaseCarr } from "../schemas/commonSchema";
 
 export const StatHelpers = {
   calculateVitality: function (forc: number, end: number, vol: number) {
@@ -34,6 +33,30 @@ export const StatHelpers = {
       StatHelpers.calculateAbility(syst.abilities[abilities.indexOf("END")]),
       StatHelpers.calculateAbility(syst.abilities[abilities.indexOf("VOL")])
     );
+
+    return {
+      current: syst.health.current,
+      max: base + syst.health.modificator,
+      percent: Math.round(
+        (syst.health.current / (base + syst.health.modificator)) * 100
+      ),
+      line: StatHelpers.calculateLine(base + syst.health.modificator),
+      lineValue: Math.round(
+        (Math.max(
+          syst.health.current -
+            StatHelpers.calculateLine(base + syst.health.modificator),
+          0
+        ) /
+          (base + syst.health.modificator)) *
+          100
+      ),
+    };
+  },
+
+  calculateActorNpcHealth: function (actor: BrigandyneActor) {
+    const syst = actor.system as any as BrigandyneActorSystem;
+
+    const base = 0;
 
     return {
       current: syst.health.current,

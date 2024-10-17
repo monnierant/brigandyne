@@ -1,8 +1,6 @@
-import {
-  BrigandyneActorSystem,
-  CaracModBaseCarr,
-  Spell,
-} from "../schemas/BrigandyneActorSchema";
+import { BrigandyneActorSystem } from "../schemas/BrigandyneActorSchema";
+
+import { Spell, CaracModBaseCarr } from "../schemas/commonSchema";
 
 import BrigandyneActorRollDialog from "../dialogs/BrigandyneRollDialog";
 import { moduleId } from "../../constants";
