@@ -1,4 +1,4 @@
-# Cowboy Bebop - Foundry VTT System
+# Brigandyne V2 - Foundry VTT System
 
 ## Install
 
