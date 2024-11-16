@@ -22,6 +22,7 @@ import { calculateInstability } from "./handlebarsHelpers/Vitals/calculateInstab
 import BrigandyneFirstRoleActorDataModel from "./apps/datamodels/BrigandyneFirstRoleActorDataModel";
 import BrigandyneSecondRoleActorDataModel from "./apps/datamodels/BrigandyneSecondRoleActorDataModel";
 import BrigandyneExtraActorDataModel from "./apps/datamodels/BrigandyneExtraActorDataModel";
+import { tooltip } from "./handlebarsHelpers/tooltip";
 
 declare global {
   interface DocumentClassConfig {
@@ -60,6 +61,7 @@ Hooks.once("init", () => {
   console.log("brigandyneActorSchema", brigandyneActorSchema);
 
   Handlebars.registerHelper("range", range);
+  Handlebars.registerHelper("tooltip", tooltip);
   Handlebars.registerHelper("concat", concat);
   Handlebars.registerHelper("ternary", ternary);
   Handlebars.registerHelper("calculateAbility", calculateAbility);
