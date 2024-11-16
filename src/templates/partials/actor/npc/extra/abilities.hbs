@@ -66,6 +66,7 @@
             type="text"
             name="system.weapons.{{ @index }}.name"
             value="{{ weapon.name }}"
+            data-tooltip="{{ tooltip weapon.name 13 }}"
             placeholder="{{ localize 'BRIGANDYNE.Actor.weapon' }}"
           />
           <input
@@ -79,6 +80,7 @@
           type="text"
           name="system.weapons.{{ @index }}.properties"
           value="{{ weapon.properties }}"
+          data-tooltip="{{ tooltip weapon.properties 13 }}"
         />
       </div>
       {{/each}}
@@ -91,6 +93,7 @@
             type="text"
             name="system.armors.{{ @index }}.name"
             value="{{ armor.name }}"
+            data-tooltip="{{ tooltip armor.name 13 }}"
             placeholder="{{localize (concat 'BRIGANDYNE.Actor.armorTypes.' armor.type)}}"
           />
           <input
@@ -115,6 +118,7 @@
           type="text"
           name="system.armors.{{ @index }}.properties"
           value="{{ armor.properties }}"
+          data-tooltip="{{ tooltip armor.properties 13 }}"
         />
       </div>
       {{/each}}

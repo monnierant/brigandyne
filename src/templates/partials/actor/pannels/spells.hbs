@@ -27,6 +27,7 @@
           type="text"
           name="system.spells.{{ @index }}.name"
           value="{{ spell.name }}"
+          data-tooltip="{{ tooltip spell.name 15 }}"
           placeholder="{{ localize 'BRIGANDYNE.Actor.spell.name' }}"
         />
         <a
@@ -136,6 +137,7 @@
           id="spell-formula-{{ @index }}"
           name="system.spells.{{ @index }}.formula"
           rows="3"
+          data-tooltip="{{ tooltip spell.formula 30 }}"
           >{{ spell.formula }}</textarea
         >
       </div>
@@ -149,6 +151,7 @@
           id="spell-description-{{ @index }}"
           name="system.spells.{{ @index }}.description"
           rows="6"
+          data-tooltip="{{ tooltip spell.description 60 }}"
           >{{ spell.description }}</textarea
         >
       </div>
