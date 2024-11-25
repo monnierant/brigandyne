@@ -43,8 +43,10 @@
       </div>
       <div>
         <label
-          >{{localize 'BRIGANDYNE.Actor.health'}} ({{ health.max }} |
-          {{ health.line }})</label
+          >{{localize 'BRIGANDYNE.Actor.health'}} ({{ health.current }}/{{
+            health.max
+          }}
+          | {{ health.line }})</label
         >
         {{> 'systems/brigandyne/templates/partials/actor/hpmpbar.hbs' color="#b71c1c" value=health}}
         <div class="brigandyne-header-section">
