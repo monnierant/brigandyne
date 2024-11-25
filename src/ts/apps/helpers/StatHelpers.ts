@@ -14,7 +14,7 @@ export const StatHelpers = {
   },
 
   calculateComposure: function (vol: number, cns: number, com: number) {
-    return Math.ceil(vol / 5) + Math.ceil(cns / 10) + Math.ceil(com / 10);
+    return Math.ceil(vol / 5) + Math.ceil(cns / 5) + Math.ceil(com / 10);
   },
 
   calculateInstability: function (composure: number) {
