@@ -30,11 +30,11 @@
       <div class="brigandyne-bag">
         <input
           type="text"
-          name="system.bags.{{ @index }}.name"
-          value="{{ bag.name }}"
+          name="system.bags.{{ @index }}.type"
+          value="{{ bag.type }}"
           placeholder="{{localize 'BRIGANDYNE.Actor.bag'}}"
         />
-        <textarea name="system.bag.{{ @index }}.content" rows="5">{{
+        <textarea name="system.bags.{{ @index }}.content" rows="5">{{
           bag.content
         }}</textarea>
       </div>

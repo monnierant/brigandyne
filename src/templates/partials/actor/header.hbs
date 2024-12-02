@@ -82,7 +82,11 @@
             type="hidden"
             value="{{ actor.system.health.current }}"
           />
-          <input name="health" type="number" value="1" />
+          <input
+            name="system.controllers.health"
+            type="number"
+            value="{{ actor.system.controllers.health }}"
+          />
           <a class="brigandyne-health-update" data-mult="1"
             ><i class="fa-solid fa-square-caret-up"></i
           ></a>
@@ -113,7 +117,11 @@
             type="hidden"
             value="{{ actor.system.composure.current }}"
           />
-          <input name="composure" type="number" value="1" />
+          <input
+            name="system.controllers.composure"
+            type="number"
+            value="{{ actor.system.controllers.composure }}"
+          />
           <a class="brigandyne-composure-update" data-mult="1"
             ><i class="fa-solid fa-square-caret-up"></i
           ></a>

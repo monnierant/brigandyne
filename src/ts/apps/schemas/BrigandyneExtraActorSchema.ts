@@ -8,6 +8,8 @@ import {
   bagSchema,
   CaracModBaseCarr,
   caracModeBaseCarrSchema,
+  Controllers,
+  controllersSchema,
   Money,
   moneySchema,
   VitalStat,
@@ -31,6 +33,7 @@ export interface BrigandyneExtraActorSystem {
   bags: Bag[];
   notes: string;
   notes2: string;
+  controllers: Controllers;
 }
 
 export const brigandyneExtraActorSchema = {
@@ -79,6 +82,7 @@ export const brigandyneExtraActorSchema = {
   }),
   notes: new fields.StringField({ initial: "" }),
   notes2: new fields.StringField({ initial: "" }),
+  controllers: new fields.SchemaField(controllersSchema()),
 };
 
 export type BrigandyneExtraActorSchema = typeof brigandyneExtraActorSchema;
