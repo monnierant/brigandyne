@@ -146,7 +146,10 @@ export default class BrigandyneActor extends Actor {
     );
 
     await this.update({
-      system: { health: { current: healthValue } },
+      system: {
+        controllers: { health: 1 },
+        health: { current: healthValue },
+      },
     });
   }
 
@@ -162,7 +165,10 @@ export default class BrigandyneActor extends Actor {
     );
 
     await this.update({
-      system: { composure: { current: composureValue } },
+      system: {
+        controllers: { composure: 1 },
+        composure: { current: composureValue },
+      },
     });
   }
 }

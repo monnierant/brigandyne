@@ -180,7 +180,7 @@ export default class BrigandyneItemSheet extends ActorSheet {
     event.preventDefault();
     const parent = event.currentTarget.parentElement;
     const input = parent.querySelector(
-      "input[name='health']"
+      "input[name='system.controllers.health']"
     ) as HTMLInputElement;
     const mult = parseInt(event.currentTarget.dataset.mult) ?? 0;
     const health = parseInt(input.value) ?? 0;
@@ -192,7 +192,7 @@ export default class BrigandyneItemSheet extends ActorSheet {
     event.preventDefault();
     const parent = event.currentTarget.parentElement;
     const input = parent.querySelector(
-      "input[name='composure']"
+      "input[name='system.controllers.composure']"
     ) as HTMLInputElement;
     const mult = parseInt(event.currentTarget.dataset.mult) ?? 0;
     const composure = parseInt(input.value) ?? 0;

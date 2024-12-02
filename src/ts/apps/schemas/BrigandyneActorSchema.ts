@@ -8,6 +8,8 @@ import {
   bagSchema,
   CaracModBaseCarr,
   caracModeBaseCarrSchema,
+  Controllers,
+  controllersSchema,
   Experience,
   experienceSchema,
   Money,
@@ -57,6 +59,7 @@ export interface BrigandyneActorSystem {
   origin: string;
   motivation: string;
   spells: Spell[];
+  controllers: Controllers;
 }
 
 export const brigandyneActorSchema = {
@@ -145,6 +148,7 @@ export const brigandyneActorSchema = {
   spells: new fields.ArrayField(new fields.SchemaField(spellSchema()), {
     initial: [],
   }),
+  controllers: new fields.SchemaField(controllersSchema()),
 };
 
 export type BrigandyneActorSchema = typeof brigandyneActorSchema;

@@ -8,6 +8,8 @@ import {
   bagSchema,
   CaracModBaseCarr,
   caracModeBaseCarrSchema,
+  Controllers,
+  controllersSchema,
   Money,
   moneySchema,
   Talent,
@@ -34,6 +36,7 @@ export interface BrigandyneSecondRoleActorSystem {
   notes: string;
   notes2: string;
   specificities: Talent[];
+  controllers: Controllers;
 }
 
 export const brigandyneSecondRoleActorSchema = {
@@ -90,6 +93,7 @@ export const brigandyneSecondRoleActorSchema = {
       description: "",
     }),
   }),
+  controllers: new fields.SchemaField(controllersSchema()),
 };
 
 export type BrigandyneSecondRoleActorSchema =

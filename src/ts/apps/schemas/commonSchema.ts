@@ -131,3 +131,13 @@ export const spellSchema = () => ({
   formula: new fields.StringField({ initial: "" }),
   description: new fields.StringField({ initial: "" }),
 });
+
+export interface Controllers {
+  health: number;
+  composure: number;
+}
+
+export const controllersSchema = () => ({
+  health: new fields.NumberField({ initial: 1 }),
+  composure: new fields.NumberField({ initial: 1 }),
+});
