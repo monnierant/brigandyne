@@ -1,6 +1,6 @@
 # Brigandyne V2 - Foundry VTT System
 
-Brigandyne V2 is a french TTRPG made by `James Tornade`
+Brigandyne V2 is a french TTRPG made by `James Tornade`.
 
 This character sheet is not an official one, its purpose is to provide an easy-to-use synthetic sheet for my DM's.
 
