@@ -31,7 +31,7 @@
         type="number"
         value="{{ ability.modificator }}"
       />
-      <div class="brigandyne-carrier">
+      <div class="brigandyne-carrier" style="display: none;">
         <input
           name="system.abilities.{{ @index }}.carrier"
           type="number"
@@ -72,7 +72,7 @@
         name="system.specificities.{{ @index }}.description"
         rows="3"
         data-tooltip="{{ tooltip talent.description 13 }}"
-        >{{ talent.description }}</textarea
+        >{{ specificity.description }}</textarea
       >
     </div>
     {{/each}}
@@ -198,10 +198,10 @@
     {{!-- notes --}}
     {{!-----------------------------------------}}
     <div class="brigandyne-note">
-      <textarea name="system.notes" rows="18">{{
+      <textarea name="system.notes" rows="11">{{
         actor.system.notes
       }}</textarea>
-      <textarea name="system.notes2" rows="18">{{
+      <textarea name="system.notes2" rows="11">{{
         actor.system.notes2
       }}</textarea>
     </div>

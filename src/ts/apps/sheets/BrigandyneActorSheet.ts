@@ -11,7 +11,7 @@ import { Spell } from "../schemas/commonSchema";
 
 export default class BrigandyneItemSheet extends ActorSheet {
   constructor(object: any, options = {}) {
-    super(object, { ...options, width: 610, height: 750 });
+    super(object, { ...options, width: 610, height: 760 });
     console.log("this.actor.type", this.actor.type);
   }
 

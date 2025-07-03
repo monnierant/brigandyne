@@ -37,6 +37,7 @@ export interface BrigandyneSecondRoleActorSystem {
   notes2: string;
   specificities: Talent[];
   controllers: Controllers;
+  archetype: string;
 }
 
 export const brigandyneSecondRoleActorSchema = {
@@ -94,6 +95,7 @@ export const brigandyneSecondRoleActorSchema = {
     }),
   }),
   controllers: new fields.SchemaField(controllersSchema()),
+  archetype: new fields.StringField({ initial: "" }),
 };
 
 export type BrigandyneSecondRoleActorSchema =

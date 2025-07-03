@@ -16,6 +16,14 @@
         <label>{{localize 'BRIGANDYNE.Actor.name'}}</label>
         <input name="name" type="text" value="{{ actor.name }}" />
       </div>
+      <div>
+        <label>{{localize 'BRIGANDYNE.Actor.archetype'}}</label>
+        <input
+          name="system.archetype"
+          type="text"
+          value="{{ actor.system.archetype }}"
+        />
+      </div>
     </div>
 
     {{!-- Stats --}}
@@ -53,7 +61,7 @@
           <a class="brigandyne-health-update" data-mult="-1"
             ><i class="fa-solid fa-square-caret-down"></i
           ></a>
-          <input name="health" type="number" value="1" />
+          <input name="system.controllers.health" type="number" value="1" />
           <a class="brigandyne-health-update" data-mult="1"
             ><i class="fa-solid fa-square-caret-up"></i
           ></a>
