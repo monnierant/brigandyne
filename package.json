@@ -11,7 +11,7 @@
     "publish": "node publish.cjs"
   },
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^12.331.1-beta",
+    "@league-of-foundry-developers/foundry-vtt-types": "^13.340.1",
     "axios": "^1.7.3",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-sass": "^1.13.2",
