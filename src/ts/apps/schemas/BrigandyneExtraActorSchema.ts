@@ -34,6 +34,7 @@ export interface BrigandyneExtraActorSystem {
   notes: string;
   notes2: string;
   controllers: Controllers;
+  archetype: string;
 }
 
 export const brigandyneExtraActorSchema = {
@@ -83,6 +84,7 @@ export const brigandyneExtraActorSchema = {
   notes: new fields.StringField({ initial: "" }),
   notes2: new fields.StringField({ initial: "" }),
   controllers: new fields.SchemaField(controllersSchema()),
+  archetype: new fields.StringField({ initial: "" }),
 };
 
 export type BrigandyneExtraActorSchema = typeof brigandyneExtraActorSchema;

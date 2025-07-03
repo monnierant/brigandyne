@@ -44,6 +44,7 @@ export interface BrigandyneFirstRoleActorSystem {
   specialities: Speciality[];
   spells: Spell[];
   controllers: Controllers;
+  archetype: string;
 }
 
 export const brigandyneFirstRoleActorSchema = {
@@ -121,6 +122,7 @@ export const brigandyneFirstRoleActorSchema = {
     initial: [],
   }),
   controllers: new fields.SchemaField(controllersSchema()),
+  archetype: new fields.StringField({ initial: "" }),
 };
 
 export type BrigandyneFirstRoleActorSchema =
