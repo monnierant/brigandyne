@@ -7,8 +7,6 @@ import BrigandyneActorSheet from "./apps/sheets/BrigandyneActorSheet";
 import { moduleId } from "./constants";
 import { range } from "./handlebarsHelpers/range";
 import { calculateAbility } from "./handlebarsHelpers/CalculateValues";
-// import brigandyneRoll from "./apps/rolls/cowboybebopRoll";
-// import brigandyneResultRollMessageData from "./apps/messages/cowboybebopResultRollMessageData";
 import { brigandyneActorSchema } from "./apps/schemas/BrigandyneActorSchema";
 import BrigandyneActorDataModel from "./apps/datamodels/BrigandyneActorDataModel";
 import BrigandyneActor from "./apps/documents/BrigandyneActor";
@@ -26,15 +24,18 @@ import { tooltip } from "./handlebarsHelpers/tooltip";
 
 declare global {
   interface DocumentClassConfig {
-    Actor: BrigandyneActor;
+    Actor: typeof BrigandyneActor;
   }
 
-  // interface DataModelConfig {
-  //   Actor: {
-  //     someActorSubtype: SomeActorSubtypeDataModel;
-  //     anotherActorSubtype: AnotherActorSubtypeDataModel;
-  //   };
-  // }
+  interface DataModelConfig {
+    Actor: {
+      character: typeof BrigandyneActorDataModel;
+      firstrole: typeof BrigandyneFirstRoleActorDataModel;
+      secondrole: typeof BrigandyneSecondRoleActorDataModel;
+      extra: typeof BrigandyneExtraActorDataModel;
+    };
+  }
+
 }
 
 async function preloadTemplates(): Promise<any> {

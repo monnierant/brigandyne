@@ -61,7 +61,6 @@ export default class BrigandyneActor extends Actor {
   }
 
   public async updateXp(xp: number) {
-    // const syst = this.system as any as BrigandyneActorSystem;
     const syst: BrigandyneActorSystem = this
       .system as any as BrigandyneActorSystem;
 
@@ -84,7 +83,6 @@ export default class BrigandyneActor extends Actor {
   }
 
   public async addSpell(spell: Spell) {
-    // const syst = this.system as any as BrigandyneActorSystem;
     const syst: BrigandyneActorSystem = this
       .system as any as BrigandyneActorSystem;
 
@@ -96,7 +94,6 @@ export default class BrigandyneActor extends Actor {
   }
 
   public async deleteSpell(spellId: number) {
-    // const syst = this.system as any as BrigandyneActorSystem;
     const syst: BrigandyneActorSystem = this
       .system as any as BrigandyneActorSystem;
 
@@ -116,7 +113,6 @@ export default class BrigandyneActor extends Actor {
   }
 
   public async moveSpell(spellId: number, direction: number) {
-    // const syst = this.system as any as BrigandyneActorSystem;
     const syst: BrigandyneActorSystem = this
       .system as any as BrigandyneActorSystem;
 
@@ -135,7 +131,6 @@ export default class BrigandyneActor extends Actor {
   }
 
   public async updateHealth(health: number) {
-    // const syst = this.system as any as BrigandyneActorSystem;
     const syst: BrigandyneActorSystem = this
       .system as any as BrigandyneActorSystem;
 
@@ -154,7 +149,6 @@ export default class BrigandyneActor extends Actor {
   }
 
   public async updateComposure(composure: number) {
-    // const syst = this.system as any as BrigandyneActorSystem;
     const syst: BrigandyneActorSystem = this
       .system as any as BrigandyneActorSystem;
 

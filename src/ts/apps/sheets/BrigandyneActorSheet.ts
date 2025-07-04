@@ -20,13 +20,13 @@ export default class BrigandyneItemSheet extends ActorSheet {
 
   // Define the template to use for this sheet
   override get template() {
-    return `systems/${moduleId}/templates/sheets/actor/actor-sheet-${this.actor.system.type}.hbs`;
+    return `systems/${moduleId}/templates/sheets/actor/actor-sheet-${this.actor.type}.hbs`;
   }
 
   // Data to be passed to the template when rendering
   override getData() {
     const data: any = super.getData();
-    data.tabs = tabs[this.actor.system.type as keyof typeof tabs];
+    data.tabs = tabs[this.actor.type as keyof typeof tabs];
     data.tab = this.tab;
     data.spellTypes = spellTypes;
     data.spellDifficulties = spellDifficulties;
@@ -35,12 +35,12 @@ export default class BrigandyneItemSheet extends ActorSheet {
     data.initiative = StatHelpers.calculateActorInit(
       this.actor as BrigandyneActor
     );
-    if (["extra", "secondrole", "firstrole"].includes(this.actor.system.type)) {
+    if (["extra", "secondrole", "firstrole"].includes(this.actor.type)) {
       data.health = StatHelpers.calculateActorNpcHealth(
         this.actor as BrigandyneActor
       );
     }
-    if (this.actor.system.type === "character") {
+    if (this.actor.type === "character") {
       data.health = StatHelpers.calculateActorHealth(
         this.actor as BrigandyneActor
       );
@@ -66,19 +66,19 @@ export default class BrigandyneItemSheet extends ActorSheet {
 
     console.log("this.actor", this.actor);
     console.log("this.actor.system", this.actor.system);
-    console.log("this.actor.system.type", this.actor.system.type);
+    console.log("this.actor.system.type", this.actor.type);
 
-    if (this.actor.system.type === "character") {
+    if ( this.actor.type === "character") {
       this.activateListenersPC(html);
     }
-    if (this.actor.system.type === "extra") {
+    if (this.actor.type === "extra") {
       this.activateListenersFirstSecondExtraRole(html);
     }
-    if (this.actor.system.type === "secondrole") {
+    if (this.actor.type === "secondrole") {
       this.activateListenersFirstSecondRole(html);
       this.activateListenersFirstSecondExtraRole(html);
     }
-    if (this.actor.system.type === "firstrole") {
+    if (this.actor.type === "firstrole") {
       this.activateListenersFirstRole(html);
       this.activateListenersFirstSecondRole(html);
       this.activateListenersFirstSecondExtraRole(html);
