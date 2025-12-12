@@ -6,7 +6,7 @@ import { CaracModBaseCarr } from "../schemas/commonSchema";
 
 export const StatHelpers = {
   calculateVitality: function (forc: number, end: number, vol: number) {
-    return Math.ceil(forc / 5) + Math.ceil(end / 5) + Math.ceil(vol / 10);
+    return Math.ceil(forc / 5) + Math.ceil(end / 5) + Math.floor(vol / 10);
   },
 
   calculateLine: function (vitality: number) {
@@ -14,7 +14,7 @@ export const StatHelpers = {
   },
 
   calculateComposure: function (vol: number, cns: number, com: number) {
-    return Math.ceil(vol / 5) + Math.ceil(cns / 5) + Math.ceil(com / 10);
+    return Math.ceil(vol / 5) + Math.ceil(cns / 5) + Math.floor(com / 10);
   },
 
   calculateInstability: function (composure: number) {
@@ -81,15 +81,15 @@ export const StatHelpers = {
     const syst = actor.system as any as BrigandyneActorSystem;
 
     return (
-      Math.ceil(
+      Math.floor(
         StatHelpers.calculateAbility(syst.abilities[abilities.indexOf("COM")]) /
           10
       ) +
-      Math.ceil(
+      Math.floor(
         StatHelpers.calculateAbility(syst.abilities[abilities.indexOf("MOU")]) /
           10
       ) +
-      Math.ceil(
+      Math.floor(
         StatHelpers.calculateAbility(syst.abilities[abilities.indexOf("PER")]) /
           10
       ) +
@@ -121,3 +121,4 @@ export const StatHelpers = {
     };
   },
 };
+
